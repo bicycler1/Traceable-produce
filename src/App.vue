@@ -5,13 +5,18 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
+#app{
+	width: 100%;
+	height: 100%;
+}
 </style>
 
 <script>
 import Home from  '@/views/Home.vue'
+
 export  default {
-  component: {
+  components: {
     Home
   }
 }

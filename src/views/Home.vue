@@ -1,13 +1,16 @@
 <template>
-  <div id="app">
-    <div class="home-background"></div>
-    <HomeOption></HomeOption>
+  <div class="home-background">
+    <HomeOption
+      content="hahaha"
+    ></HomeOption>
   </div>
 </template>
 
 <style scoped>
   .home-background{
-    background: url(../../public/favicon.ico) center center 100% 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
   }
 </style>
 
@@ -15,7 +18,7 @@
 import HomeOption from  '@/components/home/HomeOption.vue'
 
 export default {
-  component: {
+  components: {
     HomeOption
   }
 }

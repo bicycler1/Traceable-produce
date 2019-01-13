@@ -1,25 +1,22 @@
 <template>
-  <div id="app">
-    <Home>
-    </Home>
-  </div>
+	<div id="app">
+		<Home>
+		</Home>
+	</div>
 </template>
 
 <style scoped>
-#app{
-	width: 100%;
-	height: 100%;
-}
+
 </style>
 
 <script>
-import Home from  '@/views/Home.vue'
+	import Home from  '@/views/Home.vue'
 
-export  default {
-  components: {
-    Home
-  }
-}
+	export  default {
+		components: {
+			Home
+		}
+	}
 
 /* import router from './router'
 export default {

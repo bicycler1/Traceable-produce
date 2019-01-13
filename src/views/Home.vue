@@ -5,7 +5,7 @@
     <div class="home-logo">
       <img src="../assets/HomeImgs/logo.png"/>
     </div>
-    <div class="home-option">
+    <div class="home-option-frame">
       <HomeOption
       content="hahaha"
       >
@@ -34,11 +34,12 @@
   align-items: center;
   padding-top: 90px;
 }
-.home-option{
+.home-option-frame{
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 60px;
 }
 </style>
 

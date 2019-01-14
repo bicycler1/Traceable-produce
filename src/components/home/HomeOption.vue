@@ -21,6 +21,12 @@
   border-radius: 16px;
   margin: 16px;
   color: #fff;
+  cursor: pointer;
+  transition: background-color 1s ease-in-out;
+}
+.home-option:hover{
+  box-shadow: 0px 0px 16px #222;
+  background-color: #8bbbde;
 }
 </style>
 

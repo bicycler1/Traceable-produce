@@ -1,7 +1,7 @@
 <template>
   <div class="home-option">
     <div>
-     <img :src="url">
+     <img :src="'data:image/png;base64,'+this.imgContent">
   </div>
   <div>
     {{content}}  
@@ -30,21 +30,7 @@
     props: {
       imgContent: String,
       content: String
-    },
-    data() {
-      return{
-        url: ""
-      }
-    },
-    methods:{
-      srcChange(){
-        this.url="data:image/png;base64,"+this.imgContent;
-      }
-    },
-    mounted() {
-      this.srcChange();
-    }
-   
+    }  
   }
 </script>
 

@@ -9,5 +9,11 @@ export default new Router({
 		name: 'home',
 		component: () =>
 		import ( /* webpackChunkName: "about" */ './views/Home.vue')
+	},
+	{
+		path: '/query',
+		name: 'query',
+		component: () =>
+		import ( /* webpackChunkName: "about" */ './views/Query.vue')
 	}]
 })

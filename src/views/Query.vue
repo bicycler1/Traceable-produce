@@ -1,6 +1,6 @@
 <template>
   <div>
-    ahahahh
+    <QueryBanner></QueryBanner>
   </div>
 </template>
 
@@ -9,5 +9,18 @@
 </style>
 
 <script> 
-  console.log("1323")
+  import QueryBanner from '@/components/query/banner.vue'
+  export default {
+    components:{
+      QueryBanner
+    },
+    data() {
+      return {
+
+      }
+    },
+    methods: {
+
+    }
+  }
 </script>

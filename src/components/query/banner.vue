@@ -4,15 +4,21 @@
       <img src="../../assets/HomeImgs/logo.png" >
     </router-link>
     <div class="banner-option">
-      <button>
-        首页
-      </button>
-      <button>
-        溯源查询
-      </button>
-      <button>
-        企业查询
-      </button>
+      <router-link to="/">
+        <button>
+          首页
+        </button>
+      </router-link>
+      <router-link to="/query">
+        <button>
+          溯源查询
+        </button>
+      </router-link>
+      <router-link to="/">
+        <button>
+          企业查询
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -32,14 +38,15 @@
   height: 66px;
 
 }
-.banner-option>button{
+.banner-option button{
   height: 100px;
   width: 90px;
   border-bottom: 4px solid #69caeb;
-  border-right: 2px solid #fff;
+  margin-right: 2px;
   transition: border-bottom .6s ease;
+  color: #fff;
 }
-.banner-option>button:hover{
+.banner-option button:hover{
   background-color: #999;
   border-bottom: 4px solid #108ab3;
 }

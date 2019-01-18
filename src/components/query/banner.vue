@@ -5,10 +5,13 @@
     </router-link>
     <div class="banner-option">
       <button>
-        dadadad
+        首页
       </button>
       <button>
-        dadadad
+        溯源查询
+      </button>
+      <button>
+        企业查询
       </button>
     </div>
   </div>
@@ -22,16 +25,23 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  box-shadow: 0 0 0 5px #333;
+  box-shadow: 0 1px 2px #aaa;
 }
-.class-option{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.banner img{
+  width: 450px;
+  height: 66px;
+
 }
 .banner-option>button{
-  height: 90px;
-  width: 60px;
+  height: 100px;
+  width: 90px;
+  border-bottom: 4px solid #69caeb;
+  border-right: 2px solid #fff;
+  transition: border-bottom .6s ease;
+}
+.banner-option>button:hover{
+  background-color: #999;
+  border-bottom: 4px solid #108ab3;
 }
 </style>
 

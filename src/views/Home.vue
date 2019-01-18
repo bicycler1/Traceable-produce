@@ -39,7 +39,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 230px;
+  margin-top: 5%;
   height: 60px;
   background: url(../assets/HomeImgs/logo.png) center center no-repeat;
 }
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 160px;
+  margin-top: 13%;
 }
 </style>
 

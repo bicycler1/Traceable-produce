@@ -34,6 +34,7 @@
     height: 100%;
     background: #fff;
     z-index: 1;
+    transition: all 1s ease-in-out;
   }
   .enterprise-img{
     position: absolute;
@@ -55,8 +56,7 @@
     z-index: 0;
   }
   .enterprise:hover .drop-down{
-    animation: dropDown 1s ease-in-out;
-    animation-fill-mode: forwards;
+    top: 0;
   }
   @keyframes  dropDown {
     from{top: -100%;}

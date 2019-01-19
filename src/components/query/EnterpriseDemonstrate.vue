@@ -8,8 +8,7 @@
         {{enterpriseDescribe}}
       </div>
     </div>
-    <img src="../../assets/QueryImgs/e1.jpg" alt="" class="enterprise-img">
-    </img>
+    <img :src="imgChoose()" alt="" class="enterprise-img"/>
     <div>
       {{enterpriseName}}
     </div>
@@ -40,8 +39,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     z-index: 0;
   }
   .enterprise>div:last-child{
@@ -53,15 +50,13 @@
     width: 100%;
     background: rgba(99,99,99,0.6);
     border-radius: 6px 6px 0 0;
+    line-height: 1.5;
     z-index: 0;
   }
   .enterprise:hover .drop-down{
     top: 0;
   }
-  @keyframes  dropDown {
-    from{top: -100%;}
-    to{top: 0%;}
-  }
+
 </style>
 
 <script>
@@ -72,11 +67,25 @@
       enterpriseDescribe: String,
       enterpriseImg: String
     },
-    data(){
+    data() {
       return{
-
+        imgUrl1: require('../../assets/QueryImgs/e1.jpg'),
+        imgUrl2: require('../../assets/QueryImgs/e2.jpg')
       }
     },
+    methods: {
+
+      imgChoose: function () {
+        switch (parseInt(this.enterpriseImg)) {
+          case 1:
+            return(this.imgUrl1);
+            break;
+          case 2:
+            return(this.imgUrl2);
+            break;
+        }
+      }
+    }
   }
 
 </script>

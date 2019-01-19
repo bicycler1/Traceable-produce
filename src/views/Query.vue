@@ -8,21 +8,24 @@
     </div>
     <div class="enterprise-row">
       <EnterpriseDemonstrate
-        enterpriseName="dasdad"
-        enterpriseDescribe="aldhasd"
-        enterpriseImg="require(../../assets/QueryImgs/e1.jpg)"
+        enterpriseName="智慧农业软件平台"
+        enterpriseDescribe="智诚乐创"
+        enterpriseImg="1"
       ></EnterpriseDemonstrate>
       <EnterpriseDemonstrate
-        enterpriseName="dasdad"
-        enterpriseDescribe="aldhasd"
+        enterpriseName="智慧农业软件平台"
+        enterpriseDescribe="智诚乐创"
+        enterpriseImg="2"
       ></EnterpriseDemonstrate>
       <EnterpriseDemonstrate
-        enterpriseName="dasdad"
-        enterpriseDescribe="aldhasd"
+        enterpriseName="智慧农业软件平台"
+        enterpriseDescribe="智诚乐创"
+        enterpriseImg="1"
       ></EnterpriseDemonstrate>
       <EnterpriseDemonstrate
-        enterpriseName="dasdad"
-        enterpriseDescribe="aldhasd"
+        enterpriseName="智慧农业软件平台"
+        enterpriseDescribe="智诚乐创"
+        enterpriseImg="2"
       ></EnterpriseDemonstrate>
     </div>
   </div>

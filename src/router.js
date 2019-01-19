@@ -15,5 +15,11 @@ export default new Router({
 		name: 'query',
 		component: () =>
 		import ( /* webpackChunkName: "about" */ './views/Query.vue')
-	}]
+	},
+    {
+      path: '/login',
+      name: 'login',
+      component: () =>
+        import ( /* webpackChunkName: "about" */ './views/Login.vue')
+    }]
 })

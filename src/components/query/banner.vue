@@ -14,7 +14,7 @@
           溯源查询
         </button>
       </router-link>
-      <router-link to="/">
+      <router-link to="/login">
         <button>
           企业查询
         </button>
@@ -54,7 +54,7 @@
 
 <script>
   export default {
-    name: 'QueryBanner',  
+    name: 'QueryBanner',
   }
 </script>
 

@@ -21,6 +21,7 @@
   width: 200px;
   height: 200px;
   overflow: hidden;
+  color: #fff;
 }
   .drop-down{
     position: absolute;
@@ -31,7 +32,7 @@
     justify-content: space-around;
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: rgba(88,88,88,0.8);
     z-index: 1;
     transition: all 1s ease-in-out;
   }
@@ -49,7 +50,7 @@
     align-items: center;
     width: 100%;
     background: rgba(99,99,99,0.6);
-    border-radius: 6px 6px 0 0;
+    border-radius: 16px 16px 0 0;
     line-height: 1.5;
     z-index: 0;
   }

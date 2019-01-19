@@ -1,29 +1,76 @@
 <template>
   <div class="enterprise">
+    <div class="drop-down">
+      <div>
+        {{enterpriseName}}
+      </div>
+      <div>
+        {{enterpriseDescribe}}
+      </div>
+    </div>
+    <img src="../../assets/QueryImgs/e1.jpg" alt="" class="enterprise-img">
+    </img>
     <div>
       {{enterpriseName}}
-    </div>
-    <div>
-      {{enterpriseDescribe}}
     </div>
   </div>
 </template>
 
 <style scoped>
 .enterprise{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
 }
+  .drop-down{
+    position: absolute;
+    top: -100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+  }
+  .enterprise-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  .enterprise>div:last-child{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: rgba(99,99,99,0.6);
+    border-radius: 6px 6px 0 0;
+    z-index: 0;
+  }
+  .enterprise:hover .drop-down{
+    animation: dropDown 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes  dropDown {
+    from{top: -100%;}
+    to{top: 0%;}
+  }
 </style>
 
 <script>
   export default {
-    name: 'EnterpriseDemonstrate',  
+    name: 'EnterpriseDemonstrate',
     props:{
       enterpriseName: String,
-      enterpriseDescribe: String
+      enterpriseDescribe: String,
+      enterpriseImg: String
     },
     data(){
       return{

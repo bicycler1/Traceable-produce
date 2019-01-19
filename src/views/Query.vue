@@ -10,6 +10,11 @@
       <EnterpriseDemonstrate
         enterpriseName="dasdad"
         enterpriseDescribe="aldhasd"
+        enterpriseImg="require(../../assets/QueryImgs/e1.jpg)"
+      ></EnterpriseDemonstrate>
+      <EnterpriseDemonstrate
+        enterpriseName="dasdad"
+        enterpriseDescribe="aldhasd"
       ></EnterpriseDemonstrate>
       <EnterpriseDemonstrate
         enterpriseName="dasdad"
@@ -42,7 +47,7 @@
 }
 </style>
 
-<script> 
+<script>
   import QueryBanner from '@/components/query/banner.vue'
   import EnterpriseDemonstrate from '@/components/query/EnterpriseDemonstrate.vue'
   export default {

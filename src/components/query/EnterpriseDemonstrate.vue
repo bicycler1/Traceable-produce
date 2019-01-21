@@ -53,9 +53,13 @@
     border-radius: 16px 16px 0 0;
     line-height: 1.5;
     z-index: 0;
+    transition: all .6s ease-in-out;
   }
   .enterprise:hover .drop-down{
     top: 0;
+  }
+  .enterprise:hover>div:last-child{
+    bottom: -24px;
   }
 
 </style>

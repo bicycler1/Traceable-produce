@@ -4,20 +4,20 @@
             <div>
               用户登录
             </div>
-            <div>
-              <input type="text" name="" placeholder="用户名" v-model="username">
-            </div>
-            <div>
-              <input type="password" name="" placeholder="密码" v-model="password">
-            </div>
-            <div>
-              <div>
-                <span><input type="checkbox"></span>
-                <span>记住密码</span>
-              </div>
+              <input class="input-format" type="text" name="" placeholder="用户名" v-model="username">
+              <input class="input-format" type="password" name="" placeholder="密码" v-model="password">
+            <div class="checkbox">
+              <label><input type="checkbox" name="" value="">记住密码</label>
               <div>
                 注册备案
               </div>
+            </div>
+            <button type="" @click="">登录</button>
+            <div class="login-bottom">
+              <img src="../../assets/LoginImgs/login-boxbg.png">
+            </div>
+            <div class="login-bottom-tree">
+              <img src="../../assets/LoginImgs/login-tree.png">
             </div>
           </div>
         </form>
@@ -25,40 +25,32 @@
 
 <style scoped>
 .from{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 560px;
   border-radius: 16px;
-  overflow: hidden;
   background-color: #eee;
 }
 .from>div:nth-child(1){
-  position: relative;
+  width: 100%;
   background-color: #00bd8d;
   color: #fff;
   line-height: 2;
   text-align: center;
-  font-size: 1.3rem
+  font-size: 1.3rem;
+  border-radius: 16px 16px 0 0;
 }
-.from>div:nth-child(2){
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 16px;
-}
-.from>div:nth-child(3){
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 16px;
-}
-.from>div:nth:child(2),div:nthchild(3) input{
+.input-format{
   width: 80%;
   height: 36px;
   padding: 6px;
   border: 1px solid #bbb;
+  margin-top: 16px;
 }
-.from input:focus{
+.input-format:focus{
   border: 1px solid #5fcef8;
 }
 .checkbox{
@@ -66,7 +58,41 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
   margin-top: 16px;
+  color: #666;
+}
+.checkbox>label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox input{
+  width: 19px;
+  height: 19px;
+  margin-right: 10px;
+}
+.from button{
+  margin: 16px 0 30px 0;
+  width: 80%;
+  background-color: #00bd8d;
+  font-size: 1.3rem;
+  line-height: 2;
+  color: #fff;
+}
+.login-bottom{
+  position: absolute;
+  bottom: -19px;
+  left: -3%;
+}
+.login-bottom>img{
+  width: 110%;
+  height: 110%;
+}
+.login-bottom-tree{
+  position: absolute;
+  bottom: -3px;
+  left: -3%;
 }
 </style>
 

@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="background">
-
     </div>
     <div class="banner">
       <router-link to="/login">
@@ -16,6 +15,8 @@
         <LoginForm></LoginForm>
       </div>
     </div>
+    <div class="login-footer">
+    </div>  
   </div>
 </template>
 
@@ -52,6 +53,14 @@
   align-items: center;
   margin-top: 3%;
   width: 100%;
+}
+.login-footer{
+  position: absolute;
+  bottom: 0;
+  background: url(../assets/LoginImgs/login-footer.png) center center no-repeat;
+  width: 100%;
+  height: 100px;
+  background-size: 100% 100%;
 }
 </style>
 

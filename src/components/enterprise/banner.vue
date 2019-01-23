@@ -4,23 +4,23 @@
       企业农业管理系统
     </div>
     <div>
-     <span>
+     <span @click="enterpriseChoose(1)">
       <i class="fa fa-address-card fa-2x" ></i>
       基本信息
     </span>
-    <span>
+    <span @click="enterpriseChoose(2)">
       <i class="fa fa-address-card-o fa-2x" ></i>
       农资准入
     </span>
-    <span>
+    <span @click="enterpriseChoose(3)">
       <i class="fa fa-shopping-cart fa-2x" ></i>
       采购管理
     </span>
-    <span>
+    <span @click="enterpriseChoose(4)">
       <i class="fa fa-tree fa-2x" ></i>
       生产管理
     </span>
-    <span>
+    <span @click="enterpriseChoose(5)">
       <i class="fa fa-truck fa-2x" ></i>
       销售物流
     </span>
@@ -69,11 +69,44 @@
 </style>
 
 <script>
+  import store from '@/store'
   export default {
     name: 'EnterpriseBanner',
+    store,
     data () {
       return {
-        enterpriseName: "智诚乐创"
+        enterpriseName: "智诚乐创",
+        bannerChoose:{
+          info1:['企业信息','仓库管理','种植基地管理','农产品信息管理'],
+          info2:['种苗准入','农药准入','化肥准入'],
+          info3:['种苗采购','农药采购','化肥采购'],
+          info4:['种植批次管理','农事操作','农药使用信息','化肥使用信息'],
+          info5:['销售出库管理','销售物流管理'],
+        }
+      }
+    },
+    methods:{
+      enterpriseChoose: function (id) {
+        var info;
+        switch (id) {
+          case 1:
+            info = this.bannerChoose.info1;
+            break;
+          case 2:
+            info = this.bannerChoose.info2;
+            break;
+          case 3:
+            info = this.bannerChoose.info3;
+            break;
+          case 4:
+            info = this.bannerChoose.info4;
+            break;
+          case 5:
+            info = this.bannerChoose.info5;
+            break;
+        }
+        store.commit('changeEnterpriseLeft',info);
+        this.$emit('refreshList');
       }
     }
   }

@@ -5,6 +5,7 @@
         <div v-for="(item,id) in list"
             :key="id"
         >
+            <i class="fa fa-circle-o"></i>
             {{item}}
         </div>
       </div>
@@ -21,6 +22,21 @@
     background-color: #fff;
     box-sizing: border-box;
     z-index: -1;
+}
+.left-list>div{
+    padding: 0 26px;
+    line-height: 60px;
+    height: 60px;
+    font-size: 1.3rem;
+    border-bottom: 1px solid #ddd;
+}
+.left-list>div>i{
+    margin-right: 16px;
+}
+.left-list>div:hover{
+    background-color: #25aed4;
+    border-left: 6px solid #1b82b4;
+    color: #fff;
 }
 </style>
 

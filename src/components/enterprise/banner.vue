@@ -5,16 +5,24 @@
     </div>
     <div>
      <span>
-      <i class="fa fa-address-card-o" ></i>
+      <i class="fa fa-address-card fa-2x" ></i>
       基本信息
     </span>
     <span>
-      <i class="fa fa-address-card-o" ></i>
-      基本信息
+      <i class="fa fa-address-card-o fa-2x" ></i>
+      农资准入
     </span>
     <span>
-      <i class="fa fa-address-card-o" ></i>
-      基本信息
+      <i class="fa fa-shopping-cart fa-2x" ></i>
+      采购管理
+    </span>
+    <span>
+      <i class="fa fa-tree fa-2x" ></i>
+      生产管理
+    </span>
+    <span>
+      <i class="fa fa-truck fa-2x" ></i>
+      销售物流
     </span>
   </div>
   <div>
@@ -41,12 +49,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 .banner>div:nth-child(2)>span{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 6px;
+    height: 100%;
+    cursor: pointer;
+}
+.banner>div:nth-child(2)>span:hover{
+  background-color: #3c8dbc;
+}
+.banner>div:nth-child(2) i{
+  margin-bottom: 6px;
 }
 </style>
 
@@ -55,7 +73,7 @@
     name: 'EnterpriseBanner',
     data () {
       return {
-        enterpriseName: "ahsdka"
+        enterpriseName: "智诚乐创"
       }
     }
   }

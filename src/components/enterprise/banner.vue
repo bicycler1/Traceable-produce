@@ -119,6 +119,9 @@
           case 5:
             info = this.bannerChoose.info5;
             break;
+          default: 
+            info = this.bannerChoose.info1;
+            break;
         }
         store.commit('changeEnterpriseLeft',info);
         this.$emit('refreshList');

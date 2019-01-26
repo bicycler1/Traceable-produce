@@ -19,6 +19,9 @@
       <span>></span>
       <span>{{listChoose}}</span>
   </div>
+  <div class="content">
+      dasdadad
+  </div>
 </div>
 </div>
 </template>
@@ -69,6 +72,13 @@
 }
 .content-header>span:last-child{
     color: #00bd8d;
+}
+.content{
+    margin: 26px 36px;
+    padding: 26px 36px;
+    background-color: #fff;
+    border-radius: 16px;
+    border-top: 2px solid #999;
 }
 </style>
 

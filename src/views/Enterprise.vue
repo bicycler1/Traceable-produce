@@ -3,18 +3,24 @@
       <EnterpriseBanner @refreshList="changeLeftList()"></EnterpriseBanner>
       <div class="left-list">
         <div v-for="(item,id) in list.info"
-            :key="id"
+        :key="id"
+        @click="changeRightHeader(id)"
         >
-            <i class="fa fa-circle-o"></i>
-            {{item}}
-        </div>
-      </div>
-      <div class="right-info">
-          <div class="content-header">
-              {{list.title}}
-          </div>
-      </div>
+        <i class="fa fa-circle-o"></i>
+        {{item}}
     </div>
+</div>
+<div class="right-info">
+  <div class="content-header">
+      <span><i class="fa fa-dashboard"></i></span>
+      <span>首页</span>
+      <span>></span>
+      <span>{{list.title}}</span>
+      <span>></span>
+      <span>{{listChoose}}</span>
+  </div>
+</div>
+</div>
 </template>
 
 <style scoped>
@@ -54,30 +60,48 @@
     background-color: #ecf0f5;
     z-index: -1;
 }
+.content-header{
+    padding: 16px 6px 0 6px;
+    color: #666;
+}
+.content-header>span{
+    margin: 0 6px;
+}
+.content-header>span:last-child{
+    color: #00bd8d;
+}
 </style>
 
 <script>
-import EnterpriseBanner from '@/components/enterprise/banner.vue'
-import store from '@/store'
+    import EnterpriseBanner from '@/components/enterprise/banner.vue'
+    import store from '@/store'
 
     export default {
       name: "Enterprise",
       store,
       components: {
         EnterpriseBanner
-      },
-      data () {
+    },
+    data () {
         return {
             list: {
                 title: "基本信息",
                 info: ['企业信息','仓库管理','种植基地管理','农产品信息管理']
-            }
+            },
+            listChoose: "企业信息"
         }
-      },
-      methods: {
+    },
+    methods: {
         changeLeftList: function () {
             this.list = store.state.enterpriseLeft;
+            var listInfo = this.list.info;
+            this.listChoose = listInfo[0];
+        },
+        changeRightHeader: function (id) {
+            var listInfo = this.list.info;
+            this.listChoose = listInfo[id];
         }
-      }
-  }
+    }
+
+}
 </script>

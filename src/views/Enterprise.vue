@@ -2,12 +2,17 @@
     <div>
       <EnterpriseBanner @refreshList="changeLeftList()"></EnterpriseBanner>
       <div class="left-list">
-        <div v-for="(item,id) in list"
+        <div v-for="(item,id) in list.info"
             :key="id"
         >
             <i class="fa fa-circle-o"></i>
             {{item}}
         </div>
+      </div>
+      <div class="right-info">
+          <div class="content-header">
+              {{list.title}}
+          </div>
       </div>
     </div>
 </template>
@@ -29,6 +34,7 @@
     height: 60px;
     font-size: 1.3rem;
     border-bottom: 1px solid #ddd;
+    cursor: pointer;
 }
 .left-list>div>i{
     margin-right: 16px;
@@ -37,6 +43,16 @@
     background-color: #25aed4;
     border-left: 6px solid #1b82b4;
     color: #fff;
+}
+.right-info{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100%;
+    padding-top: 80px;
+    background-color: #ecf0f5;
+    z-index: -1;
 }
 </style>
 
@@ -52,7 +68,10 @@ import store from '@/store'
       },
       data () {
         return {
-            list: ['企业信息','仓库管理','种植基地管理','农产品信息管理']
+            list: {
+                title: "基本信息",
+                info: ['企业信息','仓库管理','种植基地管理','农产品信息管理']
+            }
         }
       },
       methods: {

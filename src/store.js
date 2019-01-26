@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    enterpriseLeft: [],
+    enterpriseLeft: Object,
   },
   mutations: {
     changeEnterpriseLeft: function (state,list) {

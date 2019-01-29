@@ -6,11 +6,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     enterpriseLeft: Object,
-    i: Object
+    loginData: Object
   },
   mutations: {
     changeEnterpriseLeft: function (state,list) {
       this.state.enterpriseLeft = list;
+    },
+    login: function (state,data) {
+      this.state.loginData = data
     }
   },
   actions: {

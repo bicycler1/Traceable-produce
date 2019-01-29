@@ -108,9 +108,8 @@
   import MockAdapter from 'axios-mock-adapter'
   const mock = new MockAdapter(axios);
   mock.onPost('http://localhost:8080/Login').reply(200, {
-    users: [
-      { id: 1, name: 'John Smith' }
-    ] 
+    exist: 1,
+    name: 'haha'
   });
 
   export default {
@@ -131,13 +130,15 @@
             "password": this.password,
           }),
           {
-            timeout: 5000,
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }
           })
         .then(function (response) {
-          store.state.i = response;
+          store.commit('login', response.data);
+          if(response.data.exist){
+            _this.$router.push({path: '/enterprise'});
+          }
         })
         .catch(function (error) {
           console.log(error);

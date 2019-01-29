@@ -1,26 +1,26 @@
 <template>
   <form action="Login_submit" method="get" accept-charset="utf-8">
-          <div class="from">
-            <div>
-              用户登录
-            </div>
-              <input class="input-format" type="text" name="" placeholder="用户名" v-model="username">
-              <input class="input-format" type="password" name="" placeholder="密码" v-model="password">
-            <div class="checkbox">
-              <label><input type="checkbox" name="" value="">记住密码</label>
-              <div>
-                注册备案
-              </div>
-            </div>
-            <button type="" @click="">登录</button>
-            <div class="login-bottom">
-              <img src="../../assets/LoginImgs/login-boxbg.png">
-            </div>
-            <div class="login-bottom-tree">
-              <img src="../../assets/LoginImgs/login-tree.png">
-            </div>
-          </div>
-        </form>
+    <div class="from">
+      <div>
+        用户登录
+      </div>
+      <input class="input-format" type="text" name="" placeholder="用户名" v-model="username">
+      <input class="input-format" type="password" name="" placeholder="密码" v-model="password">
+      <div class="checkbox">
+        <label><input type="checkbox" name="" value="">记住密码</label>
+        <div>
+          注册备案
+        </div>
+      </div>
+      <button type="" @click="login()">登录</button>
+      <div class="login-bottom">
+        <img src="../../assets/LoginImgs/login-boxbg.png">
+      </div>
+      <div class="login-bottom-tree">
+        <img src="../../assets/LoginImgs/login-tree.png">
+      </div>
+    </div>
+  </form>
 </template>
 
 <style scoped>
@@ -101,6 +101,18 @@
 </style>
 
 <script>
+  import axios from 'axios'
+  import qs from 'qs'
+  import store from '@/store.js'
+
+  import MockAdapter from 'axios-mock-adapter'
+  const mock = new MockAdapter(axios);
+  mock.onPost('http://localhost:8080/Login').reply(200, {
+    users: [
+      { id: 1, name: 'John Smith' }
+    ] 
+  });
+
   export default {
     name: 'LoginForm',
     data () {
@@ -108,9 +120,31 @@
         username: "",
         password: ""
       }
+    },
+    methods: {
+      login: function () {
+        var _this = this;
+        console.log(this.username);
+        axios.post('http://localhost:8080/Login', 
+          qs.stringify({
+            "username": this.username,
+            "password": this.password,
+          }),
+          {
+            timeout: 5000,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          })
+        .then(function (response) {
+          store.state.i = response;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
     }
   }
-  
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

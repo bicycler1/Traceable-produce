@@ -4,8 +4,8 @@
       <div>
         用户登录
       </div>
-      <input class="input-format" type="text" name="" placeholder="用户名" v-model="username">
-      <input class="input-format" type="password" name="" placeholder="密码" v-model="password">
+      <input class="input-format" type="text" name="" placeholder="用户名" required="required" v-model="username">
+      <input class="input-format" type="password" name="" placeholder="密码" required="required" v-model="password">
       <div class="checkbox">
         <label><input type="checkbox" name="" value="">记住密码</label>
         <div>
@@ -107,7 +107,7 @@
 
   import MockAdapter from 'axios-mock-adapter'
   const mock = new MockAdapter(axios);
-  mock.onPost('http://localhost:8080/Login').reply(200, {
+  mock.onPost('/login').reply(200, {
     exist: 1,
     name: 'haha'
   });
@@ -124,7 +124,7 @@
       login: function () {
         var _this = this;
         console.log(this.username);
-        axios.post('http://localhost:8080/Login', 
+        axios.post('/login', 
           qs.stringify({
             "username": this.username,
             "password": this.password,
@@ -135,9 +135,13 @@
             }
           })
         .then(function (response) {
-          store.commit('login', response.data);
-          if(response.data.exist){
-            _this.$router.push({path: '/enterprise'});
+          if (response.status === 200) {
+            store.commit('login', response.data);
+            var path = _this.$route.path;
+            var location = window.location.href;
+            if(response.data.exist){
+              _this.$router.push({path: '/enterprise'});
+            }
           }
         })
         .catch(function (error) {

@@ -4,7 +4,7 @@
       <div class="left-list">
         <div v-for="(item,id) in list.info"
         :key="id"
-        @click="changeRightHeader(id)"
+        @click.prevent="changeRightHeader(id);changeRightInfo(id)"
         >
         <i class="fa fa-circle-o"></i>
         {{item}}
@@ -19,9 +19,7 @@
       <span>></span>
       <span>{{listChoose}}</span>
   </div>
-  <div class="content">
-      dasdadad
-  </div>
+  <enterpriseInformation></enterpriseInformation>
 </div>
 </div>
 </template>
@@ -62,6 +60,7 @@
     padding-top: 80px;
     background-color: #ecf0f5;
     z-index: -1;
+    box-sizing: border-box;
 }
 .content-header{
     padding: 16px 6px 0 6px;
@@ -73,24 +72,28 @@
 .content-header>span:last-child{
     color: #00bd8d;
 }
-.content{
-    margin: 26px 36px;
-    padding: 26px 36px;
-    background-color: #fff;
-    border-radius: 16px;
-    border-top: 2px solid #999;
-}
 </style>
 
 <script>
+    import enterpriseInformation from '@/components/enterprise/information.vue'
     import EnterpriseBanner from '@/components/enterprise/banner.vue'
     import store from '@/store'
+    import axios from 'axios'
+    import qs from 'qs'
+
+    import MockAdapter from 'axios-mock-adapter'
+    const mock = new MockAdapter(axios);
+    mock.onPost('/enterprise').reply(200, {
+        exist: 1,
+        name: '智诚乐创'
+    });
 
     export default {
       name: "Enterprise",
       store,
       components: {
-        EnterpriseBanner
+        EnterpriseBanner,
+        enterpriseInformation
     },
     data () {
         return {
@@ -110,6 +113,26 @@
         changeRightHeader: function (id) {
             var listInfo = this.list.info;
             this.listChoose = listInfo[id];
+        },
+        changeRightInfo: function () {
+            axios.post('/enterprise',qs.stringify({
+                title: this.list.title,
+                listChoose: this.listChoose
+            }),
+            {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'timeout': 6000
+                }
+            })
+            .then((response) => {
+                if(response.status === 200){
+                    store.commit('getEnterpriseInfo',response.data);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
         }
     }
 

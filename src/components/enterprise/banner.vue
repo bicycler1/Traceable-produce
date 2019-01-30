@@ -75,7 +75,7 @@
     store,
     data () {
       return {
-        enterpriseName: "智诚乐创",
+        enterpriseName: "",
         bannerChoose:{
           info1:{
             title: "基本信息",
@@ -126,6 +126,9 @@
         store.commit('changeEnterpriseLeft',info);
         this.$emit('refreshList');
       }
+    },
+    mounted: function () {
+      this.enterpriseName = store.state.loginData.name;
     }
   }
 </script>

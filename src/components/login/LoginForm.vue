@@ -109,8 +109,8 @@
   import MockAdapter from 'axios-mock-adapter'
   const mock = new MockAdapter(axios);
   mock.onPost('/login').reply(200, {
-    exist: 0,
-    name: 'haha'
+    exist: 1,
+    name: '智诚乐创'
   });
 
   export default {
@@ -125,8 +125,7 @@
       login: function () {
         if(this.username != '' && this.password != ''){
           var _this = this;
-          axios.post('/login', 
-            qs.stringify({
+          axios.post('/login', qs.stringify({
               "username": this.username,
               "password": this.password,
             }),

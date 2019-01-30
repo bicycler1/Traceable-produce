@@ -12,7 +12,7 @@
           注册备案
         </div>
       </div>
-      <button type="" @click="login()">登录</button>
+      <button type="" @click.prevent="login()">登录</button>
       <div class="login-bottom">
         <img src="../../assets/LoginImgs/login-boxbg.png">
       </div>
@@ -104,11 +104,12 @@
   import axios from 'axios'
   import qs from 'qs'
   import store from '@/store.js'
+  import router from '@/router.js'
 
   import MockAdapter from 'axios-mock-adapter'
   const mock = new MockAdapter(axios);
   mock.onPost('/login').reply(200, {
-    exist: 1,
+    exist: 0,
     name: 'haha'
   });
 
@@ -122,31 +123,34 @@
     },
     methods: {
       login: function () {
-        var _this = this;
-        console.log(this.username);
-        axios.post('/login', 
-          qs.stringify({
-            "username": this.username,
-            "password": this.password,
-          }),
-          {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded'
+        if(this.username != '' && this.password != ''){
+          var _this = this;
+          axios.post('/login', 
+            qs.stringify({
+              "username": this.username,
+              "password": this.password,
+            }),
+            {
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'timeout': 6000
+              }
+            })
+          .then((response) => {
+            if (response.status === 200) {
+              store.commit('login',response.data);
+              if(response.data.exist){
+                router.push({path:'/enterprise'});
+              }
+              else{
+                alert('用户名或密码错误');
+              }
             }
           })
-        .then(function (response) {
-          if (response.status === 200) {
-            store.commit('login', response.data);
-            var path = _this.$route.path;
-            var location = window.location.href;
-            if(response.data.exist){
-              _this.$router.push({path: '/enterprise'});
-            }
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+          .catch((error) => {
+            console.log(error);
+          });
+        }
       }
     }
   }

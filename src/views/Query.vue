@@ -15,15 +15,17 @@
         <div class="query-qr-input">
           <div class="query-input-left">
             <div class="qr-code">
-              <img src="../assets/QueryImgs/qrCode.png"/>
               <div>
+                <img src="../assets/QueryImgs/qrCode.png"/>
+              </div>
+              <h2>
                 &nbsp;&nbsp;立刻扫码下载<br>
                 &nbsp;&nbsp;溯源移动APP
-              </div>
+              </h2>
             </div>
-            <div class="query-input-right">
-              adshada
-            </div>
+          </div>
+          <div class="query-input-right">
+            adshada
           </div>
         </div>
       </div>
@@ -109,17 +111,30 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 30%;
+  width: 26%;
   padding: 6px;
+  background-color: #eee;
+  box-sizing: border-box;
 }
 .qr-code{
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.qr-code>img{
+.qr-code>div{
   width: 100px;
   height: 100px;
+  border: 10px solid #bbb;
+  padding: 2px;
+}
+.query-input-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 74%;
+  padding: 6px;
+  background-color: #ddd;
+  box-sizing: border-box;
 }
 .enterprise-row{
   display: flex;

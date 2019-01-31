@@ -16,6 +16,7 @@ img{
 }
 html,body{
 	font-size: 16px;
+  box-sizing: border-box;
 }
 input {
 	outline: none;

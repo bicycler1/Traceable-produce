@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     enterpriseLeft: Object,
     loginData: Object,
-    enterpriseInfo: Object
+    enterpriseInfo: Array
   },
   mutations: {
     changeEnterpriseLeft: function (state,data) {

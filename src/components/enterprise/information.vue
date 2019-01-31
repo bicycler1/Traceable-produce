@@ -1,6 +1,11 @@
 <template>
   <div class="content">
-    {{info}}
+    <div v-for="(item,index) in info"
+      :key="index"
+    >
+      <span>{{item.name}}</span>
+      <span>{{item.value}}</span>
+    </div>
   </div>
 </template>
 
@@ -23,15 +28,13 @@
     name: 'enterpriseInformation',
     data () {
       return {
-        info: {
-          name: 'ahhah',
-          age: 'ads'
-        }
+        info: []
       }
     },
-    mounted: function () {
-      this.info = store.state.enterpriseInfo;
-      console.log(this.info);
+    methods: {
+      init: function () {
+        this.info = store.state.enterpriseInfo;
+      }
     }
   }
 </script>

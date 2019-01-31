@@ -19,7 +19,7 @@
       <span>></span>
       <span>{{listChoose}}</span>
   </div>
-  <enterpriseInformation></enterpriseInformation>
+  <enterpriseInformation ref="enterpriseInformation"></enterpriseInformation>
 </div>
 </div>
 </template>
@@ -83,10 +83,10 @@
 
     import MockAdapter from 'axios-mock-adapter'
     const mock = new MockAdapter(axios);
-    mock.onPost('/enterprise').reply(200, {
-        exist: 1,
-        name: '智诚乐创'
-    });
+    mock.onPost('/enterprise').reply(200, [{
+            name:  '智诚乐创',
+            value: 'hahhha'
+        }]);
 
     export default {
       name: "Enterprise",
@@ -128,6 +128,7 @@
             .then((response) => {
                 if(response.status === 200){
                     store.commit('getEnterpriseInfo',response.data);
+                    this.$refs.enterpriseInformation.init();
                 }
             })
             .catch((error) => {

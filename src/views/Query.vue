@@ -6,56 +6,36 @@
     <div class="query-background">
       <img src="../assets/QueryImgs/background.jpg" alt="">
     </div>
-    <div class="query-input">
-      <div>
-        <div class="query-input-banner">
-          <i class="fa fa-search"></i>
-          溯源查询
-        </div>
-        <div class="query-qr-input">
-          <div class="query-input-left">
-            <div class="qr-code">
-              <div>
-                <img src="../assets/QueryImgs/qrCode.png"/>
-              </div>
-              <h2>
-                &nbsp;&nbsp;立刻扫码下载<br>
-                &nbsp;&nbsp;溯源移动APP
-              </h2>
-            </div>
-          </div>
-          <div class="query-input-right">
-            adshada
-          </div>
-        </div>
-      </div>
-      <div>
-        adsads
-      </div>
-    </div>
-    <div class="enterprise-row">
-      <EnterpriseDemonstrate
-      enterpriseName="智慧农业软件平台"
-      enterpriseDescribe="智诚乐创"
-      enterpriseImg="1"
-      ></EnterpriseDemonstrate>
-      <EnterpriseDemonstrate
-      enterpriseName="智慧农业软件平台"
-      enterpriseDescribe="智诚乐创"
-      enterpriseImg="2"
-      ></EnterpriseDemonstrate>
-      <EnterpriseDemonstrate
-      enterpriseName="智慧农业软件平台"
-      enterpriseDescribe="智诚乐创"
-      enterpriseImg="1"
-      ></EnterpriseDemonstrate>
-      <EnterpriseDemonstrate
-      enterpriseName="智慧农业软件平台"
-      enterpriseDescribe="智诚乐创"
-      enterpriseImg="2"
-      ></EnterpriseDemonstrate>
-    </div>
+    <Block
+    className="fa fa-search"
+    bannerContent="溯源查询"
+    :content="news"
+    >
+  </Block>
+
+  <div class="enterprise-row">
+    <EnterpriseDemonstrate
+    enterpriseName="智慧农业软件平台"
+    enterpriseDescribe="智诚乐创"
+    enterpriseImg="1"
+    ></EnterpriseDemonstrate>
+    <EnterpriseDemonstrate
+    enterpriseName="智慧农业软件平台"
+    enterpriseDescribe="智诚乐创"
+    enterpriseImg="2"
+    ></EnterpriseDemonstrate>
+    <EnterpriseDemonstrate
+    enterpriseName="智慧农业软件平台"
+    enterpriseDescribe="智诚乐创"
+    enterpriseImg="1"
+    ></EnterpriseDemonstrate>
+    <EnterpriseDemonstrate
+    enterpriseName="智慧农业软件平台"
+    enterpriseDescribe="智诚乐创"
+    enterpriseImg="2"
+    ></EnterpriseDemonstrate>
   </div>
+</div>
 </template>
 
 <style scoped>
@@ -70,72 +50,6 @@
   align-items: center;
   justify-content: center;
 }
-.query-input{
-  position: relative;
-  margin: 0 auto;
-  margin-top: 20px;
-  width: 80%;
-  height: 300px;
-}
-.query-input>div:nth-child(1){
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80%;
-}
-.query-input>div:nth-child(2){
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20%;
-}
-.query-input-banner{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #f3f3f3;
-  height: 50px;
-  border-top: 1px solid #62d800; 
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 16px;
-}
-.query-input-banner>i{
-  margin: 0 6px;
-  color: #62d800;
-}
-.query-qr-input{
-  position: relative;
-}
-.query-input-left{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 26%;
-  padding: 6px;
-  background-color: #eee;
-  box-sizing: border-box;
-}
-.qr-code{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.qr-code>div{
-  width: 100px;
-  height: 100px;
-  border: 10px solid #bbb;
-  padding: 2px;
-}
-.query-input-right{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 74%;
-  padding: 6px;
-  background-color: #ddd;
-  box-sizing: border-box;
-}
 .enterprise-row{
   display: flex;
   justify-content: space-around;
@@ -145,18 +59,64 @@
 
 <script>
   import QueryBanner from '@/components/query/banner.vue'
+  import Block from '@/components/query/block.vue'
   import EnterpriseDemonstrate from '@/components/query/EnterpriseDemonstrate.vue'
+  import axios from 'axios'
+  import qs from 'qs'
+  
+  import MockAdapter from 'axios-mock-adapter'
+    const mock = new MockAdapter(axios);
+    mock.onPost('/query').reply(200, [{
+            content:  '智诚乐创',
+            time:"2019-1-31"
+        },{
+          content:  '智诚乐创',
+          time:"2019-1-31"
+        },{
+          content:  '智诚乐创',
+          time:"2019-1-31"
+        },{
+          content:  '智诚乐创',
+          time:"2019-1-31"
+        },{
+          content:  '智诚乐创',
+          time:"2019-1-31"
+        },{
+          content:  '智诚乐创',
+          time:"2019-1-31"
+        }]);
+
   export default {
     components:{
       QueryBanner,
+      Block,
       EnterpriseDemonstrate
     },
     data() {
       return {
+        news: []
       }
     },
     methods: {
 
+    },
+    mounted: function () {
+      var _this = this;
+      axios.post('/query',qs.stringify({
+        name: 'news'
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'timeout': 6000
+        }
+      })
+      .then((response) => {
+        _this.news = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      })
     }
   }
 </script>

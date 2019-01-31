@@ -22,6 +22,7 @@
   height: 200px;
   overflow: hidden;
   color: #fff;
+  cursor: pointer;
 }
   .drop-down{
     position: absolute;
@@ -32,7 +33,7 @@
     justify-content: space-around;
     width: 100%;
     height: 100%;
-    background: rgba(88,88,88,0.8);
+    background: rgba(47,122,180,0.7);
     z-index: 1;
     transition: all 1s ease-in-out;
   }
@@ -49,7 +50,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: rgba(99,99,99,0.6);
+    background: rgba(88,88,88,0.6);
     border-radius: 16px 16px 0 0;
     line-height: 1.5;
     z-index: 0;
@@ -79,7 +80,6 @@
       }
     },
     methods: {
-
       imgChoose: function () {
         switch (parseInt(this.enterpriseImg)) {
           case 1:

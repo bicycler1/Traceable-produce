@@ -5,15 +5,8 @@
         <i :class="className"></i>
         {{bannerContent}}
       </div>
-      <div class="banner-right">
-        更多
-        <i class="fa fa-arrow-circle-o-right"></i>
-      </div>
     </div>
     <div class="content">
-      <div>
-        <img :src="chooseImg()">
-      </div>
       <div>
         <div v-for="(item,index) in content"
         :key="index"
@@ -25,8 +18,6 @@
     </div>
   </div>
 </div>
-
-
 </template>
 
 <style scoped>
@@ -57,34 +48,8 @@ i{
   color: #62d800;
   font-size: 1.6rem;
 }
-.banner-right{
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  cursor: pointer;
-}
-.content{
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 26px 16px;
-}
-.content>div:nth-child(1){
-  position: relative;
-  width: 40%;
-  border: 5px solid #fff;
-}
-.content>div:nth-child(2){
-  position: absolute;
-  top: 26px;
-  right: 0;
-  width: 60%;
-}
 .each-content{
-  margin: 0 16px 16px 16px;
+  margin: 26px;
   padding-bottom: 16px;
   border-bottom: 2px dashed #999;
 }
@@ -96,27 +61,12 @@ i{
 
 <script>
   export default {
-    name: 'Block',
+    name: 'BlockRight',
     props: {
       className: String,
       bannerContent: String,
-      imgSrc:String,
       content: Array
     }, 
-    data () {
-      return {
-        img1: require('../../assets/QueryImgs/news1.jpg'),
-      }
-    },
-    methods: {
-      chooseImg: function () {
-        switch (parseInt(this.imgSrc)) {
-          case 1:
-          return(this.img1);
-          break;
-        }
-      }
-    }
   }
 </script>
 

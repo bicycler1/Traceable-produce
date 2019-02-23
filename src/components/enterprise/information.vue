@@ -1,12 +1,7 @@
 <template>
-  <div class="content">
-    <div v-for="(item,index) in info"
-      :key="index"
-    >
-      <span>{{item.name}}</span>
-      <span>{{item.value}}</span>
-    </div>
-  </div>
+  <router-view>
+
+  </router-view>
 </template>
 
 <style scoped>
@@ -22,22 +17,21 @@
 </style>
 
 <script>
-  import store from '@/store.js'
+import store from '@/store.js'
 
-  export default {
-    name: 'enterpriseInformation',
-    data () {
-      return {
-        info: []
-      }
-    },
-    methods: {
-      init: function () {
-        this.info = store.state.enterpriseInfo;
-      }
+export default {
+  name: 'enterpriseInformation',
+  data () {
+    return {
+      info: []
+    }
+  },
+  methods: {
+    init: function () {
+      this.info = store.state.enterpriseInfo
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-

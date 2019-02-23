@@ -36,7 +36,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: url(../../assets/enterpriseImgs/topbg.jpg) center center no-repeat; 
+  background: url(../../assets/enterpriseImgs/topbg.jpg) center center no-repeat;
   width: 100%;
   height: 80px;
   background-size: 100% 100%;
@@ -69,69 +69,68 @@
 </style>
 
 <script>
-  import store from '@/store'
-  export default {
-    name: 'EnterpriseBanner',
-    store,
-    data () {
-      return {
-        enterpriseName: "",
-        bannerChoose:{
-          info1:{
-            title: "基本信息",
-            info: ['企业信息','仓库管理','种植基地管理','农产品信息管理']
-          },
-          info2:{
-            title: "农资准入",
-            info: ['种苗准入','农药准入','化肥准入']
-          },
-          info3:{
-            title: "采购管理",
-            info: ['种苗采购','农药采购','化肥采购']
-          },
-          info4:{
-            title: "生产管理",
-            info: ['种植批次管理','农事操作','农药使用信息','化肥使用信息']
-          },
-          info5:{
-            title: "销售物流",
-            info: ['销售出库管理','销售物流管理']
-          },
+import store from '@/store'
+export default {
+  name: 'EnterpriseBanner',
+  store,
+  data () {
+    return {
+      enterpriseName: '',
+      bannerChoose: {
+        info1: {
+          title: '基本信息',
+          info: ['企业信息', '仓库管理', '种植基地管理', '农产品信息管理']
+        },
+        info2: {
+          title: '农资准入',
+          info: ['种苗准入', '农药准入', '化肥准入']
+        },
+        info3: {
+          title: '采购管理',
+          info: ['种苗采购', '农药采购', '化肥采购']
+        },
+        info4: {
+          title: '生产管理',
+          info: ['种植批次管理', '农事操作', '农药使用信息', '化肥使用信息']
+        },
+        info5: {
+          title: '销售物流',
+          info: ['销售出库管理', '销售物流管理']
         }
       }
-    },
-    methods:{
-      enterpriseChoose: function (id) {
-        var info;
-        switch (id) {
-          case 1:
-            info = this.bannerChoose.info1;
-            break;
-          case 2:
-            info = this.bannerChoose.info2;
-            break;
-          case 3:
-            info = this.bannerChoose.info3;
-            break;
-          case 4:
-            info = this.bannerChoose.info4;
-            break;
-          case 5:
-            info = this.bannerChoose.info5;
-            break;
-          default: 
-            info = this.bannerChoose.info1;
-            break;
-        }
-        store.commit('changeEnterpriseLeft',info);
-        this.$emit('refreshList');
-      }
-    },
-    mounted: function () {
-      this.enterpriseName = store.state.loginData.name;
     }
+  },
+  methods: {
+    enterpriseChoose: function (id) {
+      var info
+      switch (id) {
+        case 1:
+          info = this.bannerChoose.info1
+          break
+        case 2:
+          info = this.bannerChoose.info2
+          break
+        case 3:
+          info = this.bannerChoose.info3
+          break
+        case 4:
+          info = this.bannerChoose.info4
+          break
+        case 5:
+          info = this.bannerChoose.info5
+          break
+        default:
+          info = this.bannerChoose.info1
+          break
+      }
+      store.commit('changeEnterpriseLeft', info)
+      this.$emit('refreshList')
+    }
+  },
+  mounted: function () {
+    this.enterpriseName = store.state.loginData.name
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-

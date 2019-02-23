@@ -6,8 +6,10 @@
         :key="id"
         @click.prevent="changeRightHeader(id);changeRightInfo(id)"
         >
-        <i class="fa fa-circle-o"></i>
-        {{item}}
+          <router-link :to=informationStyle(id)>
+            <i class="fa fa-circle-o"></i>
+            {{item}}
+          </router-link>
     </div>
 </div>
 <div class="right-info">
@@ -19,7 +21,9 @@
       <span>></span>
       <span>{{listChoose}}</span>
   </div>
-  <enterpriseInformation ref="enterpriseInformation"></enterpriseInformation>
+  <router-view>
+
+  </router-view>
 </div>
 </div>
 </template>
@@ -41,10 +45,12 @@
     height: 60px;
     font-size: 1.3rem;
     border-bottom: 1px solid #ddd;
-    cursor: pointer;
+  cursor: pointer;
+  color: #666;
 }
-.left-list>div>i{
+.left-list>div i{
     margin-right: 16px;
+
 }
 .left-list>div:hover{
     background-color: #25aed4;
@@ -75,67 +81,82 @@
 </style>
 
 <script>
-    import enterpriseInformation from '@/components/enterprise/information.vue'
-    import EnterpriseBanner from '@/components/enterprise/banner.vue'
-    import store from '@/store'
-    import axios from 'axios'
-    import qs from 'qs'
+import enterpriseInformation from '@/components/enterprise/information.vue'
+import EnterpriseBanner from '@/components/enterprise/banner.vue'
+import store from '@/store'
+import axios from 'axios'
+import qs from 'qs'
 
-    import MockAdapter from 'axios-mock-adapter'
-    const mock = new MockAdapter(axios);
-    mock.onPost('/enterprise').reply(200, [{
-            name:  '智诚乐创',
-            value: 'hahhha'
-        }]);
+import MockAdapter from 'axios-mock-adapter'
+const mock = new MockAdapter(axios)
+mock.onPost('/enterprise').reply(200, [{
+  name: '智诚乐创',
+  value: 'hahhha'
+}]
+)
 
-    export default {
-      name: "Enterprise",
-      store,
-      components: {
-        EnterpriseBanner,
-        enterpriseInformation
-    },
-    data () {
-        return {
-            list: {
-                title: "基本信息",
-                info: ['企业信息','仓库管理','种植基地管理','农产品信息管理']
-            },
-            listChoose: "企业信息"
-        }
-    },
-    methods: {
-        changeLeftList: function () {
-            this.list = store.state.enterpriseLeft;
-            var listInfo = this.list.info;
-            this.listChoose = listInfo[0];
-        },
-        changeRightHeader: function (id) {
-            var listInfo = this.list.info;
-            this.listChoose = listInfo[id];
-        },
-        changeRightInfo: function () {
-            axios.post('/enterprise',qs.stringify({
-                title: this.list.title,
-                listChoose: this.listChoose
-            }),
-            {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'timeout': 6000
-                }
-            })
-            .then((response) => {
-                if(response.status === 200){
-                    store.commit('getEnterpriseInfo',response.data);
-                    this.$refs.enterpriseInformation.init();
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        }
+export default {
+  name: 'Enterprise',
+  store,
+  components: {
+    EnterpriseBanner,
+    enterpriseInformation
+  },
+  data () {
+    return {
+      list: {
+        title: '基本信息',
+        info: ['企业信息', '仓库管理', '种植基地管理', '农产品信息管理']
+      },
+      listChoose: '企业信息'
     }
-
+  },
+  methods: {
+    changeLeftList: function () {
+      this.list = store.state.enterpriseLeft
+      var listInfo = this.list.info
+      this.listChoose = listInfo[0]
+    },
+    changeRightHeader: function (id) {
+      var listInfo = this.list.info
+      this.listChoose = listInfo[id]
+    },
+    changeRightInfo: function () {
+      axios.post('/enterprise', qs.stringify({
+        title: this.list.title,
+        listChoose: this.listChoose
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'timeout': 6000
+        }
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            store.commit('getEnterpriseInfo', response.data)
+            this.$refs.enterpriseInformation.init()
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    informationStyle(id) {
+      switch(this.list.title){
+        case '基本信息':
+          switch(id){
+            case 0:
+              return '/information1'
+            case 1:
+              return '/information1'
+            case 2:
+              return '/information1'
+            case 3:
+              return '/information1'
+          }
+      }
+    }
+  }
 }
 </script>

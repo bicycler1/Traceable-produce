@@ -16,7 +16,7 @@
       :content="news"
       >
     </Block>
-    <BlockRight 
+    <BlockRight
     class="block-right"
     className="fa fa-globe"
     bannerContent="新闻动态"
@@ -34,7 +34,7 @@
   :content="news"
   >
 </Block>
-<BlockRight 
+<BlockRight
 class="block-right"
 className="fa fa-globe"
 bannerContent="新闻动态"
@@ -111,72 +111,67 @@ bannerContent="新闻动态"
 </style>
 
 <script>
-  import QueryBanner from '@/components/query/banner.vue'
-  import BlockQuery from '@/components/query/blockQuery.vue'
-  import Block from '@/components/query/block.vue'
-  import BlockRight from '@/components/query/blockRight.vue'
-  import EnterpriseDemonstrate from '@/components/query/EnterpriseDemonstrate.vue'
-  import axios from 'axios'
-  import qs from 'qs'
-  
-  import MockAdapter from 'axios-mock-adapter'
-  const mock = new MockAdapter(axios);
-  mock.onPost('/query').reply(200, {
-    news:[
-    {
-      'content':  '智诚乐创',
-      time:"2019-1-31"
-    },{
-      content:  '智诚乐创',
-      time:"2019-1-31"
-    },{
-      content:  '智诚乐创',
-      time:"2019-1-31"
-    },{
-      content:  '智诚乐创',
-      time:"2019-1-31"
-    },{
-      content:  '智诚乐创',
-      time:"2019-1-31"
-    },{
-      content:  '智诚乐创',
-      time:"2019-1-31"
-    }]
-  });
+import QueryBanner from '@/components/query/banner.vue'
+import BlockQuery from '@/components/query/blockQuery.vue'
+import Block from '@/components/query/block.vue'
+import BlockRight from '@/components/query/blockRight.vue'
+import EnterpriseDemonstrate from '@/components/query/EnterpriseDemonstrate.vue'
+import axios from 'axios'
+import qs from 'qs'
+import http from 'http'
 
-  export default {
-    components:{
-      QueryBanner,
-      BlockQuery,
-      Block,
-      BlockRight,
-      EnterpriseDemonstrate
-    },
-    data() {
-      return {
-        news: []
+// import MockAdapter from 'axios-mock-adapter'
+// const mock = new MockAdapter(axios);
+// mock.onPost('/query').reply(200, {
+//   news:[
+//   {
+//     'content':  '智诚乐创',
+//     time:"2019-1-31"
+//   },{
+//     content:  '智诚乐创',
+//     time:"2019-1-31"
+//   },{
+//     content:  '智诚乐创',
+//     time:"2019-1-31"
+//   },{
+//     content:  '智诚乐创',
+//     time:"2019-1-31"
+//   },{
+//     content:  '智诚乐创',
+//     time:"2019-1-31"
+//   },{
+//     content:  '智诚乐创',
+//     time:"2019-1-31"
+//   }]
+// });
+
+export default {
+  components: {
+    QueryBanner,
+    BlockQuery,
+    Block,
+    BlockRight,
+    EnterpriseDemonstrate
+  },
+  data () {
+    return {
+      news: []
+    }
+  },
+  methods: {},
+  mounted: function () {
+    axios.get('http://www.baidu.com', {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'timeout': 6000
       }
-    },
-    methods: {
-
-    },
-    mounted: function () {
-      var _this = this;
-      axios.post('/query',qs.stringify({
-        name: 'news'
-      }),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'timeout': 6000
-        }
-      })
-      .then((response) => {
-        _this.news = response.data.news;
+    })
+      .then((res) => {
+        console.log(res.data)
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error)
       })
-    }
   }
+}
 </script>

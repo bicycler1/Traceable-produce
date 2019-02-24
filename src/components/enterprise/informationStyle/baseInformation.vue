@@ -3,25 +3,33 @@
     <div class="frame">
       <div class="button">
         <div>
-          <buttton>
+          <button>
             <i class="fa fa-plus"></i>
             新增
-          </buttton>
-          <buttton>
+          </button>
+          <button>
             <i class="fa fa-trash"></i>
             新增
-          </buttton>
+          </button>
         </div>
         <div>
-          <buttton>
+          <button>
             <i class="fa fa-trash"></i>
             新增
-          </buttton>
+          </button>
         </div>
       </div>
     </div>
     <div class="frame">
-      adhkas
+      <table>
+        <tbody>
+        <tr class="table-head">
+          <td>
+            选择
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -29,20 +37,24 @@
 <style scoped>
 .frame{
   margin-top: 20px;
+  background: #fff;
+  padding: 9px;
 }
   .button{
     position: relative;
-    padding: 9px;
-    background: #fff;
   }
   .button>div{
     display: flex;
     align-items: center;
   }
 .button button{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80px;
   border-radius: 6px;
-  border: #bbb solid 1px;
-  background: #555;
+  border: #999 solid 1px;
+  background: #ddd;
   margin-left: 6px;
   padding: 9px;
 }
@@ -57,6 +69,12 @@
   right: 9px;
   height: 100%;
 }
+  .table-head{
+    background: #f9fffe;
+    width: 96%;
+    border-bottom: 2px solid #00bd8d;
+  }
+
 </style>
 
 <script>

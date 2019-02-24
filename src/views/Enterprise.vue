@@ -6,7 +6,7 @@
         :key="id"
         @click.prevent="changeRightHeader(id);changeRightInfo(id)"
         >
-          <router-link :to=informationStyle(id)>
+          <router-link :to=informationStyle(id) ref="information">
             <i class="fa fa-circle-o"></i>
             {{item}}
           </router-link>
@@ -97,7 +97,7 @@ export default {
   name: 'Enterprise',
   store,
   components: {
-    EnterpriseBanner,
+    EnterpriseBanner
   },
   data () {
     return {

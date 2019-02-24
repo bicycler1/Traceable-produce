@@ -22,7 +22,6 @@
       <span>{{listChoose}}</span>
   </div>
   <router-view>
-
   </router-view>
 </div>
 </div>
@@ -81,7 +80,6 @@
 </style>
 
 <script>
-import enterpriseInformation from '@/components/enterprise/information.vue'
 import EnterpriseBanner from '@/components/enterprise/banner.vue'
 import store from '@/store'
 import axios from 'axios'
@@ -100,7 +98,6 @@ export default {
   store,
   components: {
     EnterpriseBanner,
-    enterpriseInformation
   },
   data () {
     return {
@@ -135,25 +132,24 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             store.commit('getEnterpriseInfo', response.data)
-            this.$refs.enterpriseInformation.init()
           }
         })
         .catch((error) => {
           console.log(error)
         })
     },
-    informationStyle(id) {
-      switch(this.list.title){
+    informationStyle (id) {
+      switch (this.list.title) {
         case '基本信息':
-          switch(id){
+          switch (id) {
             case 0:
-              return '/information1'
+              return '/baseInformation'
             case 1:
-              return '/information1'
+              return '/baseInformation'
             case 2:
-              return '/information1'
+              return '/baseInformation'
             case 3:
-              return '/information1'
+              return '/baseInformation'
           }
       }
     }

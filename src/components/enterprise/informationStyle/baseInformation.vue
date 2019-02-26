@@ -83,13 +83,22 @@
   background: #f4f4f4;
   color: #444;
 }
+.add:hover{
+  background: #fff;
+}
 .delete{
   background: #dd4b39;
   color: #fff;
 }
+.delete:hover{
+  background: #aa392b;
+}
 .query{
   background: #00bd8d;
   color: #fff;
+}
+.query:hover{
+  background: #148b6d;
 }
   .button>div:nth-child(1){
     position: relative;
@@ -122,7 +131,10 @@ table th:nth-child(2){
 table th:nth-child(3){
   width: 40%;
 }
-
+table td{
+  padding: 6px 6px 6px 16px;
+  border: 1px solid #ccc;
+}
 </style>
 
 <script>

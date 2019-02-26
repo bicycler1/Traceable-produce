@@ -24,4 +24,8 @@ img{
 input {
 	outline: none;
 }
+table{
+	border-collapse: collapse;
+}
+
 

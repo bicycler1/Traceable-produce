@@ -3,31 +3,50 @@
     <div class="frame">
       <div class="button">
         <div>
-          <button>
+          <button class="add">
             <i class="fa fa-plus"></i>
             新增
           </button>
-          <button>
+          <button class="delete">
             <i class="fa fa-trash"></i>
-            新增
+            删除
           </button>
         </div>
         <div>
-          <button>
-            <i class="fa fa-trash"></i>
-            新增
+          <button class="query">
+            <i class="fa fa-search"></i>
+            查询
           </button>
         </div>
       </div>
     </div>
     <div class="frame">
       <table>
-        <tbody>
-        <tr class="table-head">
-          <td>
+        <thead>
+        <tr>
+          <th>
             选择
-          </td>
+          </th>
+          <th>
+            选择
+          </th>
+          <th>
+            选择
+          </th>
         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              asdhasda
+            </td>
+            <td>
+              asdhasda
+            </td>
+            <td>
+              asdhasda
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -36,9 +55,12 @@
 
 <style scoped>
 .frame{
-  margin-top: 20px;
+  margin: 20px auto;
   background: #fff;
   padding: 9px;
+  width: 96%;
+  border-radius: 9px;
+  border: 1px solid #ccc;
 }
   .button{
     position: relative;
@@ -53,10 +75,21 @@
   align-items: center;
   width: 80px;
   border-radius: 6px;
-  border: #999 solid 1px;
-  background: #ddd;
-  margin-left: 6px;
+  border: 1px solid #ddd;
+  margin: 0 6px;
   padding: 9px;
+}
+.add{
+  background: #f4f4f4;
+  color: #444;
+}
+.delete{
+  background: #dd4b39;
+  color: #fff;
+}
+.query{
+  background: #00bd8d;
+  color: #fff;
 }
   .button>div:nth-child(1){
     position: relative;
@@ -69,11 +102,26 @@
   right: 9px;
   height: 100%;
 }
-  .table-head{
+table{
+  width: 100%;
+}
+  table th{
+    width: 300px;
+    height: 36px;
+    line-height: 36px;
     background: #f9fffe;
-    width: 96%;
-    border-bottom: 2px solid #00bd8d;
+    border: 1px solid #ccc;
+    border-bottom: 2px solid #00bd8d ;
   }
+table th:nth-child(1){
+  width: 20%;
+}
+table th:nth-child(2){
+  width: 40%;
+}
+table th:nth-child(3){
+  width: 40%;
+}
 
 </style>
 

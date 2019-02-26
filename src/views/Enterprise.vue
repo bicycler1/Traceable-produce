@@ -6,7 +6,7 @@
         :key="id"
         @click.prevent="changeRightHeader(id);changeRightInfo(id)"
         >
-          <router-link :to=informationStyle(id) ref="information">
+          <router-link :to=informationStyle(id)>
             <i class="fa fa-circle-o"></i>
             {{item}}
           </router-link>
@@ -45,7 +45,7 @@
     font-size: 1.3rem;
     border-bottom: 1px solid #ddd;
   cursor: pointer;
-  color: #666;
+  color: #444;
 }
 .left-list>div i{
     margin-right: 16px;

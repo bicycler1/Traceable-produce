@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="login-footer">
-    </div>  
+    </div>
   </div>
 </template>
 
@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: flex-start;
   height: 100px;
-  background-color: #fff; 
+  background-color: #fff;
   box-shadow: 0 1px 2px #ddd;
   width: 100%;
 }
@@ -65,10 +65,10 @@
 </style>
 
 <script>
-  import LoginForm from '@/components/login/LoginForm.vue'
-  export default {
-    components:{
-      LoginForm
-    }
+import LoginForm from '@/components/login/LoginForm.vue'
+export default {
+  components: {
+    LoginForm
   }
+}
 </script>

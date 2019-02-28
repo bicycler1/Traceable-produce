@@ -101,59 +101,57 @@
 </style>
 
 <script>
-  import axios from 'axios'
-  import qs from 'qs'
-  import store from '@/store.js'
-  import router from '@/router.js'
+import axios from 'axios'
+import qs from 'qs'
+import store from '@/store.js'
+import router from '@/router.js'
 
-  import MockAdapter from 'axios-mock-adapter'
-  const mock = new MockAdapter(axios);
-  mock.onPost('/login').reply(200, {
-    exist: 1,
-    name: '智诚乐创'
-  });
+import MockAdapter from 'axios-mock-adapter'
+const mock = new MockAdapter(axios)
+mock.onPost('/login').reply(200, {
+  exist: 1,
+  name: '智诚乐创'
+})
 
-  export default {
-    name: 'LoginForm',
-    data () {
-      return {
-        username: "",
-        password: ""
-      }
-    },
-    methods: {
-      login: function () {
-        if(this.username != '' && this.password != ''){
-          var _this = this;
-          axios.post('/login', qs.stringify({
-              "username": this.username,
-              "password": this.password,
-            }),
-            {
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'timeout': 6000
-              }
-            })
+export default {
+  name: 'LoginForm',
+  data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: function () {
+      if (this.username != '' && this.password != '') {
+        var _this = this
+        axios.post('/login', qs.stringify({
+          'username': this.username,
+          'password': this.password
+        }),
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'timeout': 6000
+          }
+        })
           .then((response) => {
             if (response.status === 200) {
-              store.commit('login',response.data);
-              if(response.data.exist){
-                router.push({path:'/enterprise'});
-              }
-              else{
-                alert('用户名或密码错误');
+              store.commit('login', response.data)
+              if (response.data.exist) {
+                router.push({ path: '/enterprise' })
+              } else {
+                alert('用户名或密码错误')
               }
             }
           })
           .catch((error) => {
-            console.log(error);
-          });
-        }
+            console.log(error)
+          })
       }
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-

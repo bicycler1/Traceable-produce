@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import information from './components/enterprise/information'
 
 Vue.use(Router)
 
@@ -31,6 +30,11 @@ export default new Router({
       name: 'baseInformation',
       component: () =>
         import('./components/enterprise/informationStyle/baseInformation')
+    }, {
+      path: '/enterpriseInformation',
+      name: 'enterpriseInformation',
+      component: () =>
+        import('./components/enterprise/informationStyle/enterpriseInformation')
     }],
     component: () =>
       import(/* webpackChunkName: "about" */ './views/Enterprise.vue')

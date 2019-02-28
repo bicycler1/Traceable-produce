@@ -224,7 +224,7 @@ export default {
       if (this.list.title === '基本信息') {
         switch (id) {
           case 0:
-            return '/baseInformation'
+            return '/enterpriseInformation'
           case 1:
             return '/baseInformation'
           case 2:

@@ -24,14 +24,9 @@
       <table>
         <thead>
         <tr>
-          <th>
-            选择
-          </th>
-          <th>
-            选择
-          </th>
-          <th>
-            选择
+          <th v-for="(item,id) in enterpriseInfoHeader"
+          :key="id">
+            {{item}}
           </th>
         </tr>
         </thead>
@@ -151,7 +146,6 @@ export default {
   methods: {
     init: function () {
       this.enterpriseInfoHeader = store.state.enterpriseInfoHeader
-      console.log(this.enterpriseInfoHeader)
     }
   }
 }

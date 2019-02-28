@@ -144,19 +144,15 @@ export default {
   store,
   data () {
     return {
-      list: {
-        title: 'hahhahahahahahaahahah'
-      }
+      enterpriseInfo: Object,
+      enterpriseInfoHeader: Array
     }
   },
   methods: {
     init: function () {
-      this.list = store.state.enterpriseLeft
-      console.log(this.list)
+      this.enterpriseInfoHeader = store.state.enterpriseInfoHeader
+      console.log(this.enterpriseInfoHeader)
     }
-  },
-  mounted: function () {
-    console.log('11')
   }
 }
 </script>

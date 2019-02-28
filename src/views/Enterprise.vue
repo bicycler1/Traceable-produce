@@ -21,8 +21,9 @@
       <span>></span>
       <span>{{listChoose}}</span>
   </div>
-  <router-view>
+  <router-view ref="enterpriseInfo">
   </router-view>
+
 </div>
 </div>
 </template>
@@ -81,6 +82,7 @@
 
 <script>
 import EnterpriseBanner from '@/components/enterprise/banner.vue'
+import baseInformation from '@/components/enterprise/informationStyle/baseInformation.vue'
 import store from '@/store'
 import axios from 'axios'
 import qs from 'qs'
@@ -97,7 +99,8 @@ export default {
   name: 'Enterprise',
   store,
   components: {
-    EnterpriseBanner
+    EnterpriseBanner,
+    baseInformation
   },
   data () {
     return {
@@ -117,8 +120,26 @@ export default {
     changeRightHeader: function (id) {
       var listInfo = this.list.info
       this.listChoose = listInfo[id]
+      this.pushInfoHeader(id)
+      this.$refs.enterpriseInfo.init()
     },
-    changeRightInfo: function () {
+    pushInfoHeader: function (id) {
+      let infoHeader = []
+      if (this.list.title === '基本信息') {
+        switch (id) {
+          case 0:
+            infoHeader = []
+          case 1:
+            infoHeader = ['仓库名称', '所属企业', '管理员']
+          case 2:
+            infoHeader = ['基地名称', '所属企业', '管理员']
+          case 3:
+            infoHeader = ['仓库名称', '所属企业', '管理员']
+        }
+      }
+      store.commit('pushEnterprisreInfoHeader', infoHeader)
+    },
+    changeRightInfo: function (id) {
       axios.post('/enterprise', qs.stringify({
         title: this.list.title,
         listChoose: this.listChoose

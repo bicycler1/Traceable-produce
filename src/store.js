@@ -7,17 +7,21 @@ export default new Vuex.Store({
   state: {
     enterpriseLeft: Object,
     loginData: Object,
-    enterpriseInfo: Array
+    enterpriseInfo: Array,
+    enterpriseInfoHeader: Array
   },
   mutations: {
-    changeEnterpriseLeft: function (state,data) {
-      this.state.enterpriseLeft = data;
+    changeEnterpriseLeft: function (state, data) {
+      this.state.enterpriseLeft = data
     },
-    login: function (state,data) {
+    login: function (state, data) {
       this.state.loginData = data
     },
-    getEnterpriseInfo: function (state,data) {
+    getEnterpriseInfo: function (state, data) {
       this.state.enterpriseInfo = data
+    },
+    pushEnterprisreInfoHeader: function (state, data) {
+      this.state.enterpriseInfoHeader = data
     }
   },
   actions: {

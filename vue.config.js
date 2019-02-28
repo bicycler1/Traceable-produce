@@ -13,9 +13,7 @@ module.exports = {
       '/query': {
         target: 'http://www.baidu.com', // target host
         changeOrigin: true, // needed for virtual hosted sites
-        pathRewrite: {
-          '^/login': '/login' // rewrite path
-        }
+        pathRewrite: {}
       }
     }
   }

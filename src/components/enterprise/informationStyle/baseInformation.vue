@@ -110,21 +110,15 @@ table{
   width: 100%;
 }
   table th{
-    width: 300px;
     height: 36px;
     line-height: 36px;
     background: #f9fffe;
     border: 1px solid #ccc;
     border-bottom: 2px solid #00bd8d ;
+    font-weight: normal;
   }
 table th:nth-child(1){
-  width: 20%;
-}
-table th:nth-child(2){
-  width: 40%;
-}
-table th:nth-child(3){
-  width: 40%;
+  width: 100px;
 }
 table td{
   padding: 6px 6px 6px 16px;

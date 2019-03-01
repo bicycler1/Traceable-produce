@@ -142,6 +142,10 @@ export default {
       console.log('11')
       console.log(this.enterpriseInfoHeader)
     }
+  },
+  mounted: function () {
+    console.log('mountedbase')
+    this.enterpriseInfoHeader = store.state.enterpriseInfoHeader
   }
 }
 </script>

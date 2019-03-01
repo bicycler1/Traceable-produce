@@ -48,6 +48,10 @@ export default {
       console.log('22')
       console.log(this.enterpriseInfo)
     }
+  },
+  mounted: function () {
+    console.log('mounted')
+    this.enterpriseInfo = store.state.loginData.information
   }
 }
 </script>

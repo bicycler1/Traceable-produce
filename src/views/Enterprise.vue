@@ -106,7 +106,9 @@ export default {
         title: '基本信息',
         info: ['企业信息', '仓库管理', '种植基地管理', '农产品信息管理']
       },
-      listChoose: '企业信息'
+      listChoose: '企业信息',
+      firstLoad: 0,
+      num: 1
     }
   },
   methods: {
@@ -119,7 +121,11 @@ export default {
       var listInfo = this.list.info
       this.listChoose = listInfo[id]
       this.pushInfoHeader(id)
-      this.$refs.enterpriseInfo.init()
+      if (this.firstLoad && this.num) {
+        this.$refs.enterpriseInfo.init()
+      } else {
+        this.firstLoad = 1
+      }
     },
     pushInfoHeader: function (id) {
       let infoHeader = []

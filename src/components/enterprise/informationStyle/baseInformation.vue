@@ -133,13 +133,14 @@ export default {
   store,
   data () {
     return {
-      enterpriseInfo: Object,
       enterpriseInfoHeader: Array
     }
   },
   methods: {
     init: function () {
       this.enterpriseInfoHeader = store.state.enterpriseInfoHeader
+      console.log('11')
+      console.log(this.enterpriseInfoHeader)
     }
   }
 }

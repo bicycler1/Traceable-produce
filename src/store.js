@@ -6,7 +6,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     enterpriseLeft: Object,
-    loginData: Object,
+    loginData: {
+      information: {
+        name: 'kasdhkad',
+        age: 'kjasdkas'
+      }
+    },
     enterpriseInfo: Array,
     enterpriseInfoHeader: Array
   },

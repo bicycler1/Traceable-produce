@@ -45,6 +45,8 @@ export default {
   methods: {
     init: function () {
       this.enterpriseInfo = store.state.loginData.information
+      console.log('22')
+      console.log(this.enterpriseInfo)
     }
   }
 }

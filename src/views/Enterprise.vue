@@ -4,7 +4,7 @@
       <div class="left-list">
         <div v-for="(item,id) in list.info"
         :key="id"
-        @click.prevent="changeRightHeader(id);changeRightInfo(id)"
+        @click.prevent="changeRightHeader(id);"
         >
           <router-link :to=informationStyle(id)>
             <i class="fa fa-circle-o"></i>

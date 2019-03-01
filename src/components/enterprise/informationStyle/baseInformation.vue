@@ -138,14 +138,13 @@ export default {
   },
   methods: {
     init: function () {
+      console.log('22')
       this.enterpriseInfoHeader = store.state.enterpriseInfoHeader
-      console.log('11')
-      console.log(this.enterpriseInfoHeader)
     }
   },
   mounted: function () {
-    console.log('mountedbase')
-    this.enterpriseInfoHeader = store.state.enterpriseInfoHeader
+    console.log('baseMounted')
+    this.init()
   }
 }
 </script>

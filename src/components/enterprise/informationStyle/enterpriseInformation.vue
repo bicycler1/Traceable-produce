@@ -44,14 +44,13 @@ export default {
   },
   methods: {
     init: function () {
+      console.log('11')
       this.enterpriseInfo = store.state.loginData.information
-      console.log('22')
-      console.log(this.enterpriseInfo)
     }
   },
   mounted: function () {
-    console.log('mounted')
-    this.enterpriseInfo = store.state.loginData.information
+    console.log('enterpriseMpunted')
+    this.init()
   }
 }
 </script>

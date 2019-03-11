@@ -106,12 +106,12 @@ import qs from 'qs'
 import store from '@/store.js'
 import router from '@/router.js'
 
-import MockAdapter from 'axios-mock-adapter'
-const mock = new MockAdapter(axios)
-mock.onPost('/login').reply(200, {
-  exist: 1,
-  name: '智诚乐创'
-})
+// import MockAdapter from 'axios-mock-adapter'
+// const mock = new MockAdapter(axios)
+// mock.onPost('/login').reply(200, {
+//   exist: 1,
+//   name: '智诚乐创'
+// })
 
 export default {
   name: 'LoginForm',
@@ -123,8 +123,8 @@ export default {
   },
   methods: {
     login: function () {
-      if (this.username != '' && this.password != '') {
-        var _this = this
+      if (this.username !== '' && this.password !== '') {
+        // var _this = this
         axios.post('/login', qs.stringify({
           'username': this.username,
           'password': this.password

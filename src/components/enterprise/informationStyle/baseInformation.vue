@@ -32,14 +32,9 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-              asdhasda
-            </td>
-            <td>
-              asdhasda
-            </td>
-            <td>
-              asdhasda
+            <td v-for="(item,id) in enterpriseInfoHeader"
+                :key="id">
+              智诚乐创
             </td>
           </tr>
         </tbody>

@@ -6,7 +6,15 @@
         <tr v-for="(value,key,id)  in enterpriseInfo"
         :key="id">
           <td>
-            {{key}}:{{value}}
+            <span>
+              {{key}}
+            </span>
+            <span>
+              :
+            </span>
+            <span>
+              {{value}}
+            </span>
           </td>
         </tr>
         </tbody>
@@ -29,13 +37,21 @@ table{
 }
 table td{
   padding: 6px 6px 6px 16px;
+  border-bottom: 1px dotted #bbb;
+  transition: all .6s ease;
 }
+table td:hover{
+  background: #28d5db;
+}
+  table td>span{
+    margin-right: 6px;
+  }
 </style>
 
 <script>
 import store from '@/store'
 export default {
-  name: 'baseInformation',
+  name: 'enterpriseInformation',
   store,
   data () {
     return {

@@ -7,8 +7,10 @@
         @click.prevent="changeRightHeader(id);"
         >
           <router-link :to=informationStyle(id)>
-            <i class="fa fa-circle-o"></i>
-            {{item}}
+            <div>
+              <i class="fa fa-circle-o"></i>
+              {{item}}
+            </div>
           </router-link>
     </div>
 </div>
@@ -52,6 +54,10 @@
     margin-right: 16px;
 
 }
+.left-list>div>a>div{
+   width: 100%;
+   height: 100%;
+ }
 .left-list>div:hover{
     background-color: #25aed4;
     border-left: 6px solid #1b82b4;
@@ -83,8 +89,8 @@
 <script>
 import EnterpriseBanner from '@/components/enterprise/banner.vue'
 import store from '@/store'
-import axios from 'axios'
-import qs from 'qs'
+// import axios from 'axios'
+// import qs from 'qs'
 
 // import MockAdapter from 'axios-mock-adapter'
 // const mock = new MockAdapter(axios)

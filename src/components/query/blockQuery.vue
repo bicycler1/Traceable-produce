@@ -31,7 +31,7 @@
             请输入溯源码
           </div>
           <div>
-            <input type="text" name="" placeholder="请输入溯源码">
+            <input type="text" name="" placeholder="请输入溯源码" v-model="queryNumber">
             <button type="">马上溯源</button>
           </div>
         </div>
@@ -65,7 +65,7 @@
   position: relative;
   background-color: #f3f3f3;
   height: 50px;
-  border-top: 3px solid #62d800; 
+  border-top: 3px solid #62d800;
   font-size: 1.2rem;
   color: #666;
 }
@@ -128,7 +128,7 @@
   width: 68%;
   height: 286px;
   background-color: #aaa;
-  border-radius: 6px; 
+  border-radius: 6px;
   padding: 16px 10px 8px 10px;
 }
 .content-right>div{
@@ -189,10 +189,32 @@
 </style>
 
 <script>
-  export default {
-    name: 'BlockQuery',
+import axios from 'axios'
+import qs from 'qs'
+export default {
+  name: 'BlockQuery',
+  data () {
+    return {
+      queryNumber: String
+    }
+  },
+  methods: {
+    traceQuery: function () {
+      if(!this.queryNumber){
+        axios.post('/query', qs.stringify({
+          'queryNumber' : this.queryNumber
+        }),
+          headers:{
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'timeout': 6000
+        })
+        .then((response)=>{
+          response.data
+        })
+      }
+    }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-

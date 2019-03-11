@@ -12,6 +12,7 @@ export default new Vuex.Store({
         age: 'kjasdkas'
       }
     },
+    queryData: Object,
     enterpriseInfo: Array,
     enterpriseInfoHeader: Array
   },
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     pushEnterprisreInfoHeader: function (state, data) {
       this.state.enterpriseInfoHeader = data
+    },
+    pushQueryData: function (state, data) {
+      this.state.queryData = data
     }
   },
   actions: {

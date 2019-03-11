@@ -191,6 +191,7 @@
 <script>
 import axios from 'axios'
 import qs from 'qs'
+import store from '@/store'
 export default {
   name: 'BlockQuery',
   data () {
@@ -200,17 +201,22 @@ export default {
   },
   methods: {
     traceQuery: function () {
-      if(!this.queryNumber){
+      if (!this.queryNumber) {
         axios.post('/query', qs.stringify({
-          'queryNumber' : this.queryNumber
+          'queryNumber': this.queryNumber
         }),
-          headers:{
+        {
+          headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'timeout': 6000
+          }
         })
-        .then((response)=>{
-          response.data
-        })
+          .then((response) => {
+            store.commit('pushQueryData', response.data)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       }
     }
   }

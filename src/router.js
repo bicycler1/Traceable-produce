@@ -8,25 +8,25 @@ export default new Router({
     path: '/',
     name: 'home',
     component: () =>
-		  import(/* webpackChunkName: "about" */ './views/Home.vue')
+		  import(/* webpackChunkName: "about" */ './views/Home')
   },
   {
     path: '/query',
     name: 'query',
     component: () =>
-		  import(/* webpackChunkName: "about" */ './views/Query.vue')
+		  import(/* webpackChunkName: "about" */ './views/Query')
   },
   {
     path: '/queryResult',
     name: 'queryResults',
     component: () =>
-        import(/* webpackChunkName: "about" */ './compoents/query/queryResult.vue')
+        import(/* webpackChunkName: "about" */ './components/query/queryResult')
   },
   {
     path: '/login',
     name: 'login',
     component: () =>
-      import(/* webpackChunkName: "about" */ './views/Login.vue')
+      import(/* webpackChunkName: "about" */ './views/Login')
   },
   {
     path: '/enterprise',
@@ -43,6 +43,6 @@ export default new Router({
         import('./components/enterprise/informationStyle/enterpriseInformation')
     }],
     component: () =>
-      import(/* webpackChunkName: "about" */ './views/Enterprise.vue')
+      import(/* webpackChunkName: "about" */ './views/Enterprise')
   }]
 })

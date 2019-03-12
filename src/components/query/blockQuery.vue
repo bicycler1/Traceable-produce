@@ -31,8 +31,8 @@
             请输入溯源码
           </div>
           <div>
-            <input type="text" name="" placeholder="请输入溯源码" v-model="queryNumber">
-            <button type="">马上溯源</button>
+            <input type="text" name="" v-model="queryNumber" @focus="inputMouseEnter()" @blur="inputMouseLeave()">
+            <button type="" @click="traceQuery()">马上溯源</button>
           </div>
         </div>
       </div>
@@ -192,17 +192,25 @@
 import axios from 'axios'
 import qs from 'qs'
 import store from '@/store'
+
+import MockAdapter from 'axios-mock-adapter'
+const mock = new MockAdapter(axios)
+mock.onPost('/queryResult').reply(200, {
+  exist: 1,
+  name: '智诚乐创'
+})
+
 export default {
   name: 'BlockQuery',
   data () {
     return {
-      queryNumber: String
+      queryNumber: '请输入溯源码'
     }
   },
   methods: {
     traceQuery: function () {
       if (!this.queryNumber) {
-        axios.post('/query', qs.stringify({
+        axios.post('/queryResult', qs.stringify({
           'queryNumber': this.queryNumber
         }),
         {
@@ -217,6 +225,15 @@ export default {
           .catch((error) => {
             console.log(error)
           })
+      }
+    },
+    inputMouseEnter: function () {
+      this.queryNumber = ''
+    },
+    inputMouseLeave: function () {
+      if (!this.queryNumber) {
+        this.queryNumber = '请输入溯源码'
+      } else {
       }
     }
   }

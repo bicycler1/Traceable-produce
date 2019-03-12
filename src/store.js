@@ -12,7 +12,10 @@ export default new Vuex.Store({
         age: 'kjasdkas'
       }
     },
-    queryData: Object,
+    queryData: {
+      name: 'adshaldasd',
+      age: 'aldhksa'
+    },
     enterpriseInfo: Array,
     enterpriseInfoHeader: Array
   },

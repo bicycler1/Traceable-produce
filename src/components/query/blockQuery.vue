@@ -192,7 +192,6 @@
 import axios from 'axios'
 import qs from 'qs'
 
-
 import MockAdapter from 'axios-mock-adapter'
 const mock = new MockAdapter(axios)
 mock.onPost('/queryResult').reply(200, {
@@ -221,6 +220,7 @@ export default {
         })
           .then((response) => {
             this.$store.commit('pushQueryData', response.data)
+            this.$router.push({ path: '/queryResult' })
           })
           .catch((error) => {
             console.log(error)

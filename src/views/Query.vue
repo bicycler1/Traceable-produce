@@ -159,19 +159,19 @@ export default {
     }
   },
   methods: {},
-  mounted: function () {
-    axios.get('http://www.baidu.com', {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'timeout': 6000
-      }
-    })
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
+  // mounted: function () {
+  //   axios.get('http://www.baidu.com', {
+  //     headers: {
+  //       'Content-Type': 'application/x-www-form-urlencoded',
+  //       'timeout': 6000
+  //     }
+  //   })
+  //     .then((res) => {
+  //       console.log(res.data)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
 }
 </script>

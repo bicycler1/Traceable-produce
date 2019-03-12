@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <QueryBanner></QueryBanner>
   </div>
 </template>
 
@@ -9,11 +9,14 @@
 </style>
 
 <script>
- export default {
-   name: queryResult,
- }
+import QueryBanner from '@/components/query/banner'
+export default {
+  name: queryResult,
+  components: {
+    QueryBanner
+  }
+}
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-

@@ -191,7 +191,7 @@
 <script>
 import axios from 'axios'
 import qs from 'qs'
-import store from '@/store'
+
 
 import MockAdapter from 'axios-mock-adapter'
 const mock = new MockAdapter(axios)
@@ -209,7 +209,7 @@ export default {
   },
   methods: {
     traceQuery: function () {
-      if (!this.queryNumber) {
+      if (this.queryNumber !== '请输入溯源码' && this.queryNumber !== '') {
         axios.post('/queryResult', qs.stringify({
           'queryNumber': this.queryNumber
         }),
@@ -220,7 +220,7 @@ export default {
           }
         })
           .then((response) => {
-            store.commit('pushQueryData', response.data)
+            this.$store.commit('pushQueryData', response.data)
           })
           .catch((error) => {
             console.log(error)

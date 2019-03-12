@@ -31,7 +31,7 @@
   position: relative;
   background-color: #f3f3f3;
   height: 50px;
-  border-top: 3px solid #62d800; 
+  border-top: 3px solid #62d800;
   font-size: 1.2rem;
   color: #666;
 }
@@ -60,15 +60,14 @@ i{
 </style>
 
 <script>
-  export default {
-    name: 'BlockRight',
-    props: {
-      className: String,
-      bannerContent: String,
-      content: Array
-    }, 
+export default {
+  name: 'BlockRight',
+  props: {
+    className: String,
+    bannerContent: String,
+    content: Array
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-

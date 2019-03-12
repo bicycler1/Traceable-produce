@@ -11,10 +11,31 @@
         </div>
       </div>
       <div class="query-result-content">
-        <div v-for="(value,key,id) in queryResult"
-             :key="id">
-          {{key}}:{{value}}
-        </div>
+        <table>
+          <tr>
+            <td>
+              溯源编号
+            </td>
+            <td>
+              种子编号
+            </td>
+            <td>
+              种植基地
+            </td>
+            <td>
+              农药使用
+            </td>
+            <td>
+              化肥使用
+            </td>
+          </tr>
+          <tr>
+            <td v-for="(value,key,id) in queryResult"
+                :key="id">
+              {{value}}
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -48,10 +69,14 @@
   }
   .query-result-content{
     position: relative;
-    display: flex;
-    justify-content: center;
     width: 100%;
+    padding: 9px;
     background: #bbb;
+  }
+  .query-result-content>table td{
+    border: 1px solid #999;
+    padding: 6px;
+    text-align: center;
   }
 </style>
 

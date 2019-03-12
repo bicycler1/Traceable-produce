@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="frame">
-      <table>
+      <table border="1">
         <tbody>
         <tr v-for="(value,key,id)  in enterpriseInfo"
         :key="id">

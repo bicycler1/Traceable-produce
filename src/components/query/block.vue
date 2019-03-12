@@ -26,7 +26,6 @@
   </div>
 </div>
 
-
 </template>
 
 <style scoped>
@@ -40,7 +39,7 @@
   position: relative;
   background-color: #f3f3f3;
   height: 50px;
-  border-top: 3px solid #62d800; 
+  border-top: 3px solid #62d800;
   font-size: 1.2rem;
   color: #666;
 }
@@ -95,30 +94,29 @@ i{
 </style>
 
 <script>
-  export default {
-    name: 'Block',
-    props: {
-      className: String,
-      bannerContent: String,
-      imgSrc:String,
-      content: Array
-    }, 
-    data () {
-      return {
-        img1: require('../../assets/QueryImgs/news1.jpg'),
-      }
-    },
-    methods: {
-      chooseImg: function () {
-        switch (parseInt(this.imgSrc)) {
-          case 1:
-          return(this.img1);
-          break;
-        }
+export default {
+  name: 'Block',
+  props: {
+    className: String,
+    bannerContent: String,
+    imgSrc: String,
+    content: Array
+  },
+  data () {
+    return {
+      img1: require('../../assets/QueryImgs/news1.jpg')
+    }
+  },
+  methods: {
+    chooseImg: function () {
+      switch (parseInt(this.imgSrc)) {
+        case 1:
+          return (this.img1)
+          break
       }
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-

@@ -155,10 +155,30 @@ export default {
   },
   data () {
     return {
-      news: []
+      news: [
+        {
+          'content': '智诚乐创',
+          time: '2019-1-31'
+        }, {
+          content: '智诚乐创',
+          time: '2019-1-31'
+        }, {
+          content: '智诚乐创',
+          time: '2019-1-31'
+        }, {
+          content: '智诚乐创',
+          time: '2019-1-31'
+        }, {
+          content: '智诚乐创',
+          time: '2019-1-31'
+        }, {
+          content: '智诚乐创',
+          time: '2019-1-31'
+        }
+      ]
     }
   },
-  methods: {},
+  methods: {}
   // mounted: function () {
   //   axios.get('http://www.baidu.com', {
   //     headers: {

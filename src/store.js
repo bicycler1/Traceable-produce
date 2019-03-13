@@ -9,7 +9,11 @@ export default new Vuex.Store({
     loginData: {
       information: {
         name: 'kasdhkad',
-        age: 'kjasdkas'
+        age: 'kjasdkas',
+        name1: 'kasdhkad',
+        age1: 'kjasdkas',
+        name3: 'kasdhkad',
+        age3: 'kjasdkas'
       }
     },
     queryData: {

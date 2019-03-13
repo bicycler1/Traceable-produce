@@ -1,22 +1,20 @@
 <template>
   <div>
     <div class="frame">
-      <table border="1">
+      <table>
         <tbody>
-        <tr v-for="(value,key,id)  in enterpriseInfo"
-        :key="id">
-          <td>
-            <span>
-              {{key}}
-            </span>
-            <span>
-              :
-            </span>
-            <span>
-              {{value}}
-            </span>
-          </td>
-        </tr>
+          <div v-for="(value,key,id)  in enterpriseInfo" v-if="id % 2== 0" :key="id">
+              <td>
+                {{Object.keys(enterpriseInfo)[id]}}
+                <span>:</span>
+                {{enterpriseInfo[Object.keys(enterpriseInfo)[id]]}}
+              </td>
+              <td v-if="id < objectLength(enterpriseInfo)">
+                {{Object.keys(enterpriseInfo)[id+1]}}
+                <span>:</span>
+                {{enterpriseInfo[Object.keys(enterpriseInfo)[id+1]]}}
+              </td>
+          </div>
         </tbody>
       </table>
     </div>
@@ -28,28 +26,31 @@
   margin: 20px auto;
   background: #fff;
   padding: 9px;
-  width: 96%;
+  width: 1000px;
   border-radius: 9px;
   border: 1px solid #ccc;
 }
-table{
-  width: 100%;
-}
 table td{
-  padding: 6px 6px 6px 16px;
+  width: 490px;
+  padding: 16px;
+  padding-left: 26px;
   border-bottom: 1px dotted #bbb;
+  font-size: 1.1rem;
+  color: #666;
   transition: all .6s ease;
 }
 table td:hover{
-  background: #28d5db;
+  background: #21a58f;
+  color: #fff;
 }
   table td>span{
-    margin-right: 6px;
+    margin: 0 6px;
   }
 </style>
 
 <script>
 import store from '@/store'
+
 export default {
   name: 'enterpriseInformation',
   store,
@@ -62,6 +63,14 @@ export default {
     init: function () {
       console.log('11')
       this.enterpriseInfo = store.state.loginData.information
+    },
+    objectLength: function (object) {
+      var count = 0
+      for (var i in object) {
+        count++
+      }
+      console.log(count)
+      return count
     }
   },
   mounted: function () {

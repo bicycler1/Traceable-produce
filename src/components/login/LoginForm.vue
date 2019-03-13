@@ -131,10 +131,10 @@ export default {
     },
     getCookies: function (name) {
       var arr
-      var reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+      var reg = new RegExp(''+name+'')
       if (document.cookie.match(reg)) {
         arr = document.cookie.match(reg)
-        return decodeURI(arr[2])
+        return decodeURI(arr)
       } else {
         return null
       }
@@ -161,7 +161,7 @@ export default {
               if (1) {
                 store.commit('login', response.data)
                 if (this.isRemberPassword) {
-                  this.setCookies('username', _this.username)
+                  this.setCookies('username', response.data.username)
                 }
                 // router.push({ path: '/enterprise' })
               } else {
@@ -174,6 +174,9 @@ export default {
           })
       }
     }
+  },
+  created: function () {
+    console.log(this.getCookies('username'))
   }
 }
 </script>

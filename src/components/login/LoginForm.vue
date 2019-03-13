@@ -7,7 +7,7 @@
       <input class="input-format" type="text" name="" placeholder="用户名" required="required" v-model="username">
       <input class="input-format" type="password" name="" placeholder="密码" required="required" v-model="password">
       <div class="checkbox">
-        <label><input type="checkbox" name="" value="">记住密码</label>
+        <label><input type="checkbox" name="" value="" id="isRemberPassword">记住密码</label>
         <div>
           注册备案
         </div>
@@ -118,13 +118,34 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      isRemberPassword: Number
     }
   },
   methods: {
+    setCookies: function (name, value) {
+      var Days = 3
+      var exp = new Date()
+      exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000)
+      document.cookie = name + '=' + encodeURI(value) + ';expires=' + exp.toGMTString()
+    },
+    getCookies: function (name) {
+      var arr
+      var reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+      if (document.cookie.match(reg)) {
+        arr = document.cookie.match(reg)
+        return decodeURI(arr[2])
+      } else {
+        return null
+      }
+    },
     login: function () {
       if (this.username !== '' && this.password !== '') {
-        // var _this = this
+        var _this = this
+        this.username = this.username.trim()
+        this.password = this.password.trim()
+        this.isRemberPassword = document.getElementById('isRemberPassword').checked
+        console.log(this.isRemberPassword)
         axios.post('/login', qs.stringify({
           'username': this.username,
           'password': this.password
@@ -136,10 +157,13 @@ export default {
           }
         })
           .then((response) => {
-            if (response.status === 200) {
-              store.commit('login', response.data)
-              if (response.data.exist) {
-                router.push({ path: '/enterprise' })
+            if (response.status === 500) {
+              if (1) {
+                store.commit('login', response.data)
+                if (this.isRemberPassword) {
+                  this.setCookies('username', _this.username)
+                }
+                // router.push({ path: '/enterprise' })
               } else {
                 alert('用户名或密码错误')
               }

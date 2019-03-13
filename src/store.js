@@ -17,8 +17,11 @@ export default new Vuex.Store({
       }
     },
     queryData: {
-      name: 'adshaldasd',
-      age: 'aldhksa'
+      1: '智诚乐创',
+      2: '智诚乐创',
+      3: '智诚乐创',
+      4: '智诚乐创',
+      5: '智诚乐创'
     },
     enterpriseInfo: Array,
     enterpriseInfoHeader: Array

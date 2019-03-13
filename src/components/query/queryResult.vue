@@ -12,7 +12,7 @@
       </div>
       <div class="query-result-content">
         <table>
-          <tr>
+          <tr class="table-header">
             <td>
               溯源编号
             </td>
@@ -73,10 +73,23 @@
     padding: 9px;
     background: #bbb;
   }
+  .query-result-content>table{
+    width: 100%;
+    color: #fff;
+  }
+  .table-header{
+    font-size: 1.2rem;
+  }
+  .table-header>td:hover{
+    background: #21a58f;
+  }
   .query-result-content>table td{
-    border: 1px solid #999;
+    border: 1px solid #ddd;
     padding: 6px;
     text-align: center;
+  }
+  .table-header>td{
+    padding: 12px !important;
   }
 </style>
 

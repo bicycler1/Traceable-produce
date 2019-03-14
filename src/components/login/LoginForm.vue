@@ -123,21 +123,24 @@ export default {
     }
   },
   methods: {
-    setCookies: function (name, value) {
-      var Days = 3
-      var exp = new Date()
-      exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000)
-      document.cookie = name + '=' + encodeURI(value) + ';expires=' + exp.toGMTString()
+    setCookies: function (name, value, expiredays) {
+      var exdate = new Date()
+      exdate.setDate(exdate.getDate() + expiredays)
+      document.cookie = name + '=' + encodeURI(value) + ((expiredays == null) ? '' : ';expires=' + exdate.toGMTString())
     },
     getCookies: function (name) {
-      var arr
-      var reg = new RegExp(''+name+'')
-      if (document.cookie.match(reg)) {
-        arr = document.cookie.match(reg)
-        return decodeURI(arr)
-      } else {
-        return null
+      if (document.cookie.length > 0) {
+        var start = document.cookie.indexOf(name + '=')
+        if (start !== -1) {
+          start = start + name.length + 1
+          var end = document.cookie.indexOf(';', start)
+          if (end === -1) {
+            end = document.cookie.length
+          }
+          return decodeURI(document.cookie.substring(start, end))
+        }
       }
+      return 0
     },
     login: function () {
       if (this.username !== '' && this.password !== '') {
@@ -157,13 +160,13 @@ export default {
           }
         })
           .then((response) => {
-            if (response.status === 500) {
-              if (1) {
+            if (response.status === 200) {
+              if (response.data.exist) {
                 store.commit('login', response.data)
                 if (this.isRemberPassword) {
-                  this.setCookies('username', response.data.username)
+                  this.setCookies('username', response.data.information.username, 3)
                 }
-                // router.push({ path: '/enterprise' })
+                router.push({ path: '/enterprise' })
               } else {
                 alert('用户名或密码错误')
               }
@@ -176,7 +179,9 @@ export default {
     }
   },
   created: function () {
-    console.log(this.getCookies('username'))
+    if (this.getCookies('username')) {
+      router.push({ path: '/enterprise' })
+    }
   }
 }
 </script>

@@ -28,6 +28,12 @@
             <td>
               化肥使用
             </td>
+            <td>
+              加工包装
+            </td>
+            <td>
+              物流信息
+            </td>
           </tr>
           <tr>
             <td v-for="(value,key,id) in queryResult"

@@ -128,7 +128,7 @@ export default {
     }
   },
   mounted: function () {
-    this.enterpriseName = store.state.loginData.username
+    this.enterpriseName = store.state.loginData.information.username
   }
 }
 </script>

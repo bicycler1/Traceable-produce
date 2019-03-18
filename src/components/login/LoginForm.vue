@@ -106,12 +106,19 @@ import qs from 'qs'
 import store from '@/store.js'
 import router from '@/router.js'
 
-// import MockAdapter from 'axios-mock-adapter'
-// const mock = new MockAdapter(axios)
-// mock.onPost('/login').reply(200, {
-//   exist: 1,
-//   name: '智诚乐创'
-// })
+import MockAdapter from 'axios-mock-adapter'
+const mock = new MockAdapter(axios)
+mock.onPost('/login').reply(200, {
+  exist: 1,
+  information: {
+    username: '华科',
+    idCard: '666666',
+    '企业地址': '湖北省武汉市',
+    '企业邮箱': '123456@qq.com',
+    '企业负责人': '许长乐',
+    '负责人电话': '1822586632'
+  }
+})
 
 export default {
   name: 'LoginForm',
@@ -167,9 +174,9 @@ export default {
                   this.setCookies('username', response.data.information.username, 3)
                 }
                 router.push({ path: '/enterprise' })
-              } else {
-                alert('用户名或密码错误')
               }
+            } else {
+              alert('用户名或密码错误！')
             }
           })
           .catch((error) => {

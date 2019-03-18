@@ -8,21 +8,15 @@ export default new Vuex.Store({
     enterpriseLeft: Object,
     loginData: {
       information: {
-        name: 'kasdhkad',
-        age: 'kjasdkas',
-        name1: 'kasdhkad',
-        age1: 'kjasdkas',
-        name3: 'kasdhkad',
-        age3: 'kjasdkas'
+        username: '华科',
+        idCard: '666666',
+        '企业地址': '湖北省武汉市',
+        '企业邮箱': '123456@qq.com',
+        '企业负责人': '许长乐',
+        '负责人电话': '1822586632'
       }
     },
-    queryData: {
-      1: '智诚乐创',
-      2: '智诚乐创',
-      3: '智诚乐创',
-      4: '智诚乐创',
-      5: '智诚乐创'
-    },
+    queryData: {},
     enterpriseInfo: Array,
     enterpriseInfoHeader: Array
   },

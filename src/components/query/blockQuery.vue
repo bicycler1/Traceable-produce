@@ -31,8 +31,8 @@
             请输入溯源码
           </div>
           <div>
-            <input type="text" name="" v-model="queryNumber" @focus="inputMouseEnter()" @blur="inputMouseLeave()">
-            <button type="" @click="traceQuery()">马上溯源</button>
+            <input type="text" name="" v-model="queryNumber" @focus="inputMouseEnter" @blur="inputMouseLeave">
+            <button type="" @click="traceQuery">马上溯源</button>
           </div>
         </div>
       </div>
@@ -195,8 +195,13 @@ import qs from 'qs'
 import MockAdapter from 'axios-mock-adapter'
 const mock = new MockAdapter(axios)
 mock.onPost('/queryResult').reply(200, {
-  exist: 1,
-  name: '智诚乐创'
+  id: 12345678,
+  id1: 12345678,
+  name1: '华科森林公园',
+  name2: '甲基对硫磷',
+  name3: '钾肥',
+  name4: '加工厂1',
+  name5: '从武汉出发'
 })
 
 export default {
@@ -228,7 +233,9 @@ export default {
       }
     },
     inputMouseEnter: function () {
-      this.queryNumber = ''
+      if (this.queryNumber === '请输入溯源码') {
+        this.queryNumber = ''
+      }
     },
     inputMouseLeave: function () {
       if (!this.queryNumber) {

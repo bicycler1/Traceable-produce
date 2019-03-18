@@ -66,34 +66,33 @@
 </style>
 
 <script>
-  export default {
-    name: 'EnterpriseDemonstrate',
-    props:{
-      enterpriseName: String,
-      enterpriseDescribe: String,
-      enterpriseImg: String
-    },
-    data() {
-      return{
-        imgUrl1: require('../../assets/QueryImgs/e1.jpg'),
-        imgUrl2: require('../../assets/QueryImgs/e2.jpg')
-      }
-    },
-    methods: {
-      imgChoose: function () {
-        switch (parseInt(this.enterpriseImg)) {
-          case 1:
-            return(this.imgUrl1);
-            break;
-          case 2:
-            return(this.imgUrl2);
-            break;
-        }
+export default {
+  name: 'EnterpriseDemonstrate',
+  props: {
+    enterpriseName: String,
+    enterpriseDescribe: String,
+    enterpriseImg: String
+  },
+  data () {
+    return {
+      imgUrl1: require('../../assets/QueryImgs/e1.jpg'),
+      imgUrl2: require('../../assets/QueryImgs/e2.jpg')
+    }
+  },
+  methods: {
+    imgChoose: function () {
+      switch (parseInt(this.enterpriseImg)) {
+        case 1:
+          return (this.imgUrl1)
+          break
+        case 2:
+          return (this.imgUrl2)
+          break
       }
     }
   }
+}
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-
